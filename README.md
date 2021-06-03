@@ -6,6 +6,8 @@ A personalized fitness app
 
 Deadline - wed. 9
 
+[Design](https://www.figma.com/file/1hWRTcunU7XxMsq6zxaSZ4/GetGo?node-id=0%3A1)
+
 ``` 
 As a user
 To chose a workout
