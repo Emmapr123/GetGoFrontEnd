@@ -10,15 +10,14 @@ import {
 const Header = () => {
 
   return(
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={{fontSize: 36}}>GetGo</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 50,
     overflow: 'hidden',
     flexDirection: 'row',
     alignItems: 'center',
