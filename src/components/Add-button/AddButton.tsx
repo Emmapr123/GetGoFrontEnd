@@ -13,7 +13,7 @@ const AddButton = ({style}: {style: StyleProp<ViewStyle>}) => {
 
   return(
     <TouchableOpacity {...{style}}>
-      <Text>Add</Text>
+      <Text style={{fontSize: 24}}>Add</Text>
     </TouchableOpacity>
   )
 }
