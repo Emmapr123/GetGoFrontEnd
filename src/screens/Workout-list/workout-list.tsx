@@ -4,16 +4,19 @@ import {
   StyleSheet, 
   Text, 
   SafeAreaView, 
-  View
+  View,
+  Dimensions
 } from 'react-native';
-import { Header } from '../../components';
+import { AddButton } from '../../components';
 
 const WorkoutListScreen = () => {
+  const { width, height } = Dimensions.get('window')
 
   return(
-    <SafeAreaView>
+    <View style={{flex: 1, position: 'relative'}}>
       <Text>Hello World</Text>
-    </SafeAreaView>
+      <AddButton style={{position: 'absolute', right: 40, top: height - 150}}/>
+    </View>
   )
 }
 

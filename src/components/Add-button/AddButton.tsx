@@ -3,14 +3,16 @@ import {
   StyleSheet, 
   Text, 
   SafeAreaView, 
-  View
+  View,
+  StyleProp,
+  ViewStyle
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const AddButton = () => {
+const AddButton = ({style}: {style: StyleProp<ViewStyle>}) => {
 
   return(
-    <TouchableOpacity>
+    <TouchableOpacity {...{style}}>
       <Text>Add</Text>
     </TouchableOpacity>
   )

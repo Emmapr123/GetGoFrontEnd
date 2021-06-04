@@ -9,7 +9,7 @@ import { WorkoutListScreen } from './src/screens/Workout-list';
 import { Header } from './src/components';
 
 type RootStackParamList = {
-  Home: undefined;
+  WorkoutList: undefined;
   Profile: { userId: string };
   Feed: { sort: 'latest' | 'top' } | undefined;
 };
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{header: Header}}>
-        <Stack.Screen name="Home" component={WorkoutListScreen} />
+        <Stack.Screen name="WorkoutList" component={WorkoutListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
