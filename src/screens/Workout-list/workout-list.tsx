@@ -19,7 +19,7 @@ const WorkoutListScreen = () => {
         <Text>Hello World</Text>
       </View>
       <View style={{position: 'absolute', bottom: 32, left: 0, right: 0, zIndex: 3}}>
-        <Button style={{alignSelf: 'baseline', marginLeft: 'auto', marginRight: 32}} text={'add'} onPress={() => console.log('pressed')} />
+        <Button style={{alignSelf: 'baseline', marginLeft: 'auto', marginRight: 32}} text={'add'} onPress={() => navigation.navigate('AddWorkoutScreen')} />
       </View>
     </SafeAreaView>
   )
