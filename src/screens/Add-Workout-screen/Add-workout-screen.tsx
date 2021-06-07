@@ -61,8 +61,8 @@ const AddWorkoutScreen = () => {
           <Button text={'+'} onPress={addExercise}/>
         </View>
       </View>
-      <ScrollView>
       <EditExerciseComponent {...exercises[currentIndex]} onChange={(key,value) => onEditExcercise(currentIndex, key,value)}/>
+      <ScrollView>
       {exercises.map((exercise,index) =>  {
         if (index!==currentIndex) {
           return <TouchableOpacity key={index} onPress={() => setCurrentIndex(index)}>

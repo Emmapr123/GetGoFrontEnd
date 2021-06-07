@@ -2,10 +2,11 @@ import React from 'react';
 import { 
   Text, 
   View,
+  StyleSheet,
 } from 'react-native';
 import { Exercise } from '../../components';
 
-// Adds a new, empty exercise at the bottom when add exercise is pressed - might want to change that 
+// A new, empty exercise added when add exercise button is pressed  
 const blankExcercise: Exercise = {
   title: '',
   duration: 0,
@@ -22,12 +23,39 @@ const ExerciseComponent = ({
   description,
   onChange
 }:ExerciseComponentProps) => {
-  return <View>
-    <Text >{title}</Text>
-    <Text >{duration}</Text>
+  return <View style={styles.exerciseBox} >
+    <View style={styles.titleAndDuration}>
+      <Text style={styles.title} >{title}</Text>
+      <Text >{duration}</Text>
+    </View>
     <Text> {description} </Text>
   </View>
 }
+
+const styles = StyleSheet.create({
+  exerciseBox: {
+    borderColor: 'black',
+    borderWidth: 0.3,
+    borderRadius: 4,
+    padding: 10,
+    margin: 18
+  },
+  titleAndDuration: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  title: {
+    fontSize: 14,
+    marginBottom: 10,
+    marginHorizontal: 3
+  },
+  duration: {
+    fontSize: 14
+  },
+  description: {
+    fontSize: 14,
+  }
+})
 
 export { ExerciseComponent } 
 export { blankExcercise }
