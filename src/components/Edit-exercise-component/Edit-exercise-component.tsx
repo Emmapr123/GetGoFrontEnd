@@ -20,7 +20,7 @@ const EditExerciseComponent = ({
   return <View>
     <TextInput placeholder={'Add title'} value={title} onChangeText={(text) => onChange('title', text)}/>
     <TextInput value={`${duration}`} onChangeText={(text) => onChange('duration', text)}/>
-    <TextInput value={description} onChangeText={(text) => onChange('description', text)} />
+    <TextInput placeholder={'Add description'} value={description} onChangeText={(text) => onChange('description', text)} />
   </View>
 }
 
