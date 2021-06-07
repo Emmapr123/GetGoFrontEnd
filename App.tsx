@@ -10,7 +10,7 @@ import { AddWorkoutScreen } from './src/screens';
 
 type RootStackParamList = {
   WorkoutList: { sort: 'latest' | 'top' } | undefined;
-  AddWorkoutScreen: undefined;
+  AddWorkoutScreen: { sort: 'latest' | 'bottom' } | undefined;
   // Profile: { userId: string };
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
