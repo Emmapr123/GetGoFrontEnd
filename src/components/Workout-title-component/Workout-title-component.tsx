@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMyContext } from '../Context-provider';
 import { 
   StyleSheet, 
   Text, 
-  SafeAreaView, 
-  TextInput,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 
 const WorkoutTitleComponent = () => {
-  const myContext = useMyContext()
 
-  const [workoutTitle, setWorkoutTitle] = useState('')
-  
-
-  console.log('_______ context value: ', myContext?.myState)
+  // I get the workouts from my context provider component
+  const myContext = useMyContext()  
+  const workout = myContext?.myWorkouts
+  const workoutTitle = workout?.map((workout) => {
+    return workout.title
+  })
 
   return(
     <View>
-      
-      <TextInput 
-       placeholder="Workout title"
-       onChangeText={(text) => myContext?.setMyState(text)}
-       value={myContext?.myState}
-      />
+      {workoutTitle?.map((title) => {
+        return <TouchableOpacity>
+          <Text>{title}</Text>
+        </TouchableOpacity>
+      })}
     </View>
   )
 }
