@@ -1,4 +1,4 @@
-// import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 import React, {useState} from 'react';
 import { 
   StyleSheet, 
@@ -13,8 +13,9 @@ import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, Edit
 
 const AddWorkoutScreen = () => {
 
+  const navigation = useNavigation();
   const [title,setTitle] = useState('')
-  const [exercises,setExercises] = useState<Exercise[]>([])
+  const [exercises,setExercises] = useState<Exercise[]>([blankExcercise])
   const [currentIndex,setCurrentIndex] = useState(0)
   const myContext=useMyContext()
   const { width, height } = Dimensions.get('window')
@@ -26,6 +27,7 @@ const AddWorkoutScreen = () => {
       title,
       exercises
     })
+    navigation.navigate('WorkoutList')
   }
 
   // places the new empty exercise to the list of exercises
@@ -33,6 +35,10 @@ const AddWorkoutScreen = () => {
     setExercises(prev => [...prev, blankExcercise])
     setCurrentIndex(prev => prev + 1)
   }
+
+  // const deleteExercise = () => {
+
+  // }
 
   // Takes the pressed on exercise from the list, to the top, ready to be editted
   const onEditExcercise = (index:number, key:string, value:string) => setExercises(prev => prev.map((exercise,i) => {
