@@ -1,9 +1,10 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   View,
   Text,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import { Workout, ExerciseComponent, Button, Exercise } from '../../components';
 
@@ -13,12 +14,11 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   const fullWorkout = route?.params?.workout
   const workoutTitle = fullWorkout?.title
   const exercises = fullWorkout?.exercises
-  const [currentIndex,setCurrentIndex] = useState(0)
-  const [title,setTitle] = useState('')
 
   return(
     <View style={{flex: 1, position: 'relative'}}>
-      <Text>{workoutTitle}</Text>
+      <Text style={styles.workoutTitle} >{workoutTitle}</Text>
+      <Button text={'Edit'} style={styles.editButton} onPress={() => console.log('pressed')}/>
       <ScrollView>
       {exercises.map((exercise: Exercise,index: string) =>  {
           return <View key={index} >
@@ -26,10 +26,27 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
           </View>
     })}
       </ScrollView>
-      <Button text={'Start'} onPress={() => console.log('start')} />
-      <Button text={'Edit'} onPress={() => console.log('pressed')}/>
+      <Button text={'GO!'} style={styles.GoButton} onPress={() => console.log('start')} />
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  workoutTitle: {
+    fontSize: 24,
+    alignSelf: 'center',
+    margin: 18,
+  },
+  GoButton: {
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 20
+  },
+  editButton: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+  }
+})
 
 export { IndividualWorkoutScreen }
