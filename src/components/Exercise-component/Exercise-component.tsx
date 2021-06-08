@@ -20,8 +20,7 @@ interface ExerciseComponentProps extends Exercise {
 const ExerciseComponent = ({
   title,
   duration,
-  description,
-  onChange
+  description
 }:ExerciseComponentProps) => {
   return <View style={styles.exerciseBox} >
     <View style={styles.titleAndDuration}>

@@ -21,8 +21,6 @@ export interface Exercise {
 
 export const MyContext = createContext<MyContextValue | undefined>(undefined);
 
-
-
 export const useMyContext = () => {
   const auth = useContext(MyContext);
   return auth;

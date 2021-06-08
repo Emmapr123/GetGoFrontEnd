@@ -6,9 +6,9 @@ import {
   View,
   TextInput,
   Text,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, EditExerciseComponent } from '../../components';
 
 const AddWorkoutScreen = () => {
