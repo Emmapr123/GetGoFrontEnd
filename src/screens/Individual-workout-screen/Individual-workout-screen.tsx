@@ -1,4 +1,5 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { 
   View,
@@ -14,6 +15,7 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   const fullWorkout = route?.params?.workout
   const workoutTitle = fullWorkout?.title
   const exercises = fullWorkout?.exercises
+  const navigation = useNavigation()
 
   return(
     <View style={{flex: 1, position: 'relative'}}>
@@ -22,11 +24,15 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
       <ScrollView>
       {exercises.map((exercise: Exercise,index: string) =>  {
           return <View key={index} >
-            <ExerciseComponent  title={exercise.title} duration={exercise.duration} description={exercise.description} onChange={() => console.log('changed')} />
+            <ExerciseComponent  
+              title={exercise.title} 
+              duration={exercise.duration} 
+              description={exercise.description} 
+              onChange={() => console.log('changed')} />
           </View>
     })}
       </ScrollView>
-      <Button text={'GO!'} style={styles.GoButton} onPress={() => console.log('start')} />
+      <Button text={'GO!'} style={styles.GoButton} onPress={() => navigation.navigate("StartWorkoutScreen")} />
     </View>
   )
 }

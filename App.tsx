@@ -6,12 +6,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { WorkoutListScreen } from './src/screens/Workout-list';
 import { Header, MyContextProvider, Workout } from './src/components';
-import { AddWorkoutScreen, IndividualWorkoutScreen } from './src/screens';
+import { AddWorkoutScreen, IndividualWorkoutScreen, StartWorkoutScreen } from './src/screens';
 
 type RootStackParamList = {
   WorkoutList: { sort: 'latest' | 'top' } | undefined;
   AddWorkoutScreen: { sort: 'latest' | 'bottom' } | undefined;
   IndividualWorkoutScreen: { workout: Workout } ;
+  StartWorkoutScreen: undefined;
   // Profile: { userId: string };
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
@@ -26,6 +27,7 @@ export default function App() {
           <Stack.Screen name="WorkoutList" component={WorkoutListScreen} />
           <Stack.Screen name="AddWorkoutScreen" component={AddWorkoutScreen} />
           <Stack.Screen name="IndividualWorkoutScreen" component={IndividualWorkoutScreen} />
+          <Stack.Screen name="StartWorkoutScreen" component={StartWorkoutScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </MyContextProvider>

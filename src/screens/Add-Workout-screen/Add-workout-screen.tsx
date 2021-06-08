@@ -62,7 +62,6 @@ const AddWorkoutScreen = () => {
       <View style={styles.ExercisesButtonBox}>
         <Text style={styles.ExercisesTitle} > Exercises</Text>
         <View style={styles.ExercisesButtons}>
-          {/* Will be turned into SVG's, or otherwise styled buttons later on */}
           <Button style={{marginRight: 15}} text={'%'} onPress={() => console.log('pressed')} />
           <Button text={'+'} onPress={addExercise}/>
         </View>
