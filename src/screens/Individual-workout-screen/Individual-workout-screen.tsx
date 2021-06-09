@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Workout, ExerciseComponent, Button, Exercise } from '../../components';
 import { RootStackParamList } from '../../../App'
+import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
 
 type IndividualWorkoutScreenProp = RouteProp<
   RootStackParamList,
@@ -23,9 +24,20 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   const exercises = fullWorkout?.exercises
   const navigation = useNavigation()
 
+  const totalDurationFunction = () => {
+    const sum = exercises.map((exercise) => {
+      return +exercise.duration
+    })
+    const addedUp = sum.reduce(function(a, b){
+        return a + b;
+      }, 0)
+    return addedUp
+  }
+
   return(
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
+      <MinutesAndSeconds duration={totalDurationFunction()}/>
       <Button text={'Edit'} style={styles.editButton} onPress={() => console.log('pressed')}/>
       <ScrollView>
       {exercises.map((exercise,index) =>  {
@@ -56,7 +68,7 @@ const styles = StyleSheet.create({
   },
   editButton: {
     position: 'absolute',
-    top: 40,
+    top: 70,
     right: 20,
   }
 })
