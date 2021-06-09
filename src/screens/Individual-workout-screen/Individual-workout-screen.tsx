@@ -1,4 +1,4 @@
-import { useNavigation, useRoute } from '@react-navigation/core';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { 
@@ -8,10 +8,16 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Workout, ExerciseComponent, Button, Exercise } from '../../components';
+import { RootStackParamList } from '../../../App'
+
+type IndividualWorkoutScreenProp = RouteProp<
+  RootStackParamList,
+  'IndividualWorkoutScreen'
+>
 
 const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   
-  const route = useRoute()
+  const route = useRoute<IndividualWorkoutScreenProp>();
   const fullWorkout = route?.params?.workout
   const workoutTitle = fullWorkout?.title
   const exercises = fullWorkout?.exercises
@@ -22,7 +28,7 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
       <Button text={'Edit'} style={styles.editButton} onPress={() => console.log('pressed')}/>
       <ScrollView>
-      {exercises.map((exercise: Exercise,index: string) =>  {
+      {exercises.map((exercise,index) =>  {
           return <View key={index} >
             <ExerciseComponent  
               title={exercise.title} 
@@ -32,7 +38,7 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
           </View>
     })}
       </ScrollView>
-      <Button text={'GO!'} style={styles.GoButton} onPress={() => navigation.navigate("StartWorkoutScreen")} />
+      <Button text={'GO!'} style={styles.GoButton} onPress={() => navigation.navigate("StartWorkoutScreen", { workout: fullWorkout } )} />
     </View>
   )
 }

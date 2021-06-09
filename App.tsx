@@ -12,7 +12,7 @@ type RootStackParamList = {
   WorkoutList: { sort: 'latest' | 'top' } | undefined;
   AddWorkoutScreen: { sort: 'latest' | 'bottom' } | undefined;
   IndividualWorkoutScreen: { workout: Workout } ;
-  StartWorkoutScreen: undefined;
+  StartWorkoutScreen: { workout: Workout };
   // Profile: { userId: string };
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
@@ -40,3 +40,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
 });
+
+export { RootStackParamList }
