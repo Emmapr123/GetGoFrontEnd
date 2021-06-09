@@ -5,6 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Exercise } from '../../components';
+import { MinutesAndSeconds } from '../Minutes-and-seconds/Minutes-and-seconds';
 
 // A new, empty exercise added when add exercise button is pressed  
 const blankExcercise: Exercise = {
@@ -25,7 +26,7 @@ const ExerciseComponent = ({
   return <View style={styles.exerciseBox} >
     <View style={styles.titleAndDuration}>
       <Text style={styles.title} >{title}</Text>
-      <Text >{duration}</Text>
+      <MinutesAndSeconds {...{duration}} />
     </View>
     <Text> {description} </Text>
   </View>

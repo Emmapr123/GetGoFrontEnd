@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { ExerciseComponentProps } from '../Exercise-component'
 
-// Duration is now a text Input, will turn into a time picker later on
 const EditExerciseComponent = ({
   title,
   duration,
@@ -52,7 +51,6 @@ const EditExerciseComponent = ({
              return <Picker.Item key={seconds} label={`${seconds}`} value={seconds} />
             })}
       </Picker>
-    {/* <TextInput style={styles.duration} value={`${duration}`} onChangeText={(text) => onChange('duration', text)}/> */}
   </View>
 }
 
