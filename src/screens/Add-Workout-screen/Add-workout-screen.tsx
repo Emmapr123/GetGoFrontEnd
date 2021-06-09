@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/core';
-import React, {useState} from 'react';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
+import React, {useEffect, useState} from 'react';
 import { 
   StyleSheet, 
   ScrollView,
@@ -9,9 +9,15 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native';
-import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, EditExerciseComponent } from '../../components';
+import { RootStackParamList } from '../../../App';
+import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, EditExerciseComponent, Workout } from '../../components';
 
-const AddWorkoutScreen = () => {
+type AddWorkoutScreenProp = RouteProp<
+  RootStackParamList,
+  'AddWorkoutScreen'
+>
+
+const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
 
   const navigation = useNavigation();
   const [title,setTitle] = useState('')
@@ -19,6 +25,8 @@ const AddWorkoutScreen = () => {
   const [currentIndex,setCurrentIndex] = useState(0)
   const myContext=useMyContext()
   const { width, height } = Dimensions.get('window')
+  const route = useRoute<AddWorkoutScreenProp>();
+  const existingWorkout = route?.params?.workout
 
   // Saves a new workout to the context
   const addWorkout = () => {
@@ -49,6 +57,14 @@ const AddWorkoutScreen = () => {
        }
     } return exercise
   }))
+
+  // To edit an existing workout - does not work yet, will come back to this tonight
+  useEffect((existingWorkout?: Workout) => {
+      if (existingWorkout) {
+        setTitle(existingWorkout.title);
+        setExercises(existingWorkout.exercises);
+      }
+    })
 
   return(
     <View style={{flex: 1}}>

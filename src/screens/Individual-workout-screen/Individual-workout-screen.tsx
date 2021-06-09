@@ -37,7 +37,7 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
       <MinutesAndSeconds style={styles.totalDuration} duration={totalDurationFunction()}/>
-      <Button text={'Edit'} style={styles.editButton} onPress={() => console.log('pressed')}/>
+      <Button text={'Edit'} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
       <ScrollView>
       {exercises.map((exercise,index) =>  {
           return <View key={index} >
