@@ -36,7 +36,7 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   return(
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
-      <MinutesAndSeconds duration={totalDurationFunction()}/>
+      <MinutesAndSeconds style={styles.totalDuration} duration={totalDurationFunction()}/>
       <Button text={'Edit'} style={styles.editButton} onPress={() => console.log('pressed')}/>
       <ScrollView>
       {exercises.map((exercise,index) =>  {
@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     alignSelf: 'center',
     margin: 18,
+  },
+  totalDuration:{
+    fontSize: 18,
+    alignSelf: 'center',
   },
   GoButton: {
     alignSelf: 'center',
