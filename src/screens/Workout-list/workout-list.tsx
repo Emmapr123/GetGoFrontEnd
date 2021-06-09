@@ -9,6 +9,7 @@ import {
   StyleSheet
 } from 'react-native';
 import { Button, useMyContext, Workout, WorkoutTitleComponent } from '../../components';
+import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
 
 const WorkoutListScreen = () => {
   const { width, height } = Dimensions.get('window')
@@ -26,8 +27,20 @@ const WorkoutListScreen = () => {
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1, position: 'relative'}}>
         {workout?.map((workout) => {
-        return <TouchableOpacity key={workout.id} onPress={() => findWorkout(workout)} >
+
+          const totalDurationFunction = () => {
+            const sum = workout.exercises.map((exercise) => {
+              return +exercise.duration
+            })
+            const addedUp = sum.reduce(function(a, b){
+                return a + b;
+              }, 0)
+            return addedUp
+          }
+
+        return <TouchableOpacity style={styles.workoutContainer} key={workout.id} onPress={() => findWorkout(workout)} >
           <Text style={styles.title} >{workout.title}</Text>
+          <MinutesAndSeconds duration={totalDurationFunction()} />
         </TouchableOpacity>
       })}
       </View>
@@ -39,6 +52,10 @@ const WorkoutListScreen = () => {
 }
 
 const styles = StyleSheet.create({
+  workoutContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   title: {
     fontSize: 24,
     marginTop: 18,

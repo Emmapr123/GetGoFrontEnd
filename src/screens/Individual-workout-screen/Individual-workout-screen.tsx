@@ -1,5 +1,4 @@
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { 
   View,
