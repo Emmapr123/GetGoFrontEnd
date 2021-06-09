@@ -18,7 +18,6 @@ type StartWorkoutScreenProp = RouteProp<
 const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
 
   const route = useRoute<StartWorkoutScreenProp>();
-  const id = route?.params?.workout.id
   const workoutTitle = route?.params?.workout.title
   const exercises = route?.params?.workout.exercises
   const { width, height } = Dimensions.get('window')
@@ -36,7 +35,6 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
           width,
         }]}
         snapToInterval={width}
-        // ref={(ref) => { FlatListRef = ref; }}
         renderItem={({item, index}) => {
           return <View style={{width}}>
               <Text>{item.title}</Text>
