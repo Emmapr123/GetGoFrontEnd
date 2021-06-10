@@ -9,91 +9,10 @@ import {
   TextInput
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
-import { Exercise, Workout } from '../../components';
+import { Exercise, Workout, AnimatedBarComponent } from '../../components';
 import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
 
-const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: boolean}) => {
 
-  const { width, height } = Dimensions.get('window')
-  const timerAnimation = useRef(new Animated.Value(0)).current;
-  const duration = +exercise.duration
-  const inputRef = useRef<TextInput>();
-  // console.log(duration)
-  // console.log(active)
-
-  React.useEffect(() => {
-    const listener = timerAnimation.addListener(({value}) => {
-      const number = (duration + (value * (1 - duration))).toFixed()
-      inputRef?.current?.setNativeProps({
-        text:  +number < 10 ? `0${number}` : `${number}`
-      })
-    })
-
-    return () => {
-      timerAnimation.removeListener(listener)
-      timerAnimation.removeAllListeners();
-    }
-  })
-
-  console.log(inputRef)
-
-  // Now the animation knows where to start and how long it animates for
-  const AnimatedExerciseBar = () => {
-    Animated.timing(timerAnimation, {
-      toValue: 1,
-      duration: duration * 1000,
-      useNativeDriver: true
-    }).start()
-  }
-
-  const moveDown = timerAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, height]
-  })
-
-  const opacity = timerAnimation.interpolate({
-    inputRange: [0, 0.2, 1],
-    outputRange: [0, 0.5, 1]
-  })
-
-  const textTransform = timerAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [-200, 0],
-  });
-
-  useEffect(() => {
-    if (active) {
-      AnimatedExerciseBar();
-    }
-  }, [active, duration])
-
-  return(
-    <View style={{flex: 1}}>
-    <Animated.View 
-      style={{
-        position: 'absolute',
-        width,
-        height,
-        opacity,
-        backgroundColor: 'lightgreen',
-        transform: [
-          {
-            translateY: moveDown
-          }
-        ]
-      }}
-    />
-    <TextInput
-      ref={() => inputRef}
-      style={{fontSize: 40, width: 70, justifyContent: 'center', alignItems: 'center'}}
-      defaultValue={duration.toString()}
-    />
-    {/* <Animated.Text>
-      {duration}
-    </Animated.Text> */}
-    </View>
-  )
-}
 
 type StartWorkoutScreenProp = RouteProp<
   RootStackParamList,
