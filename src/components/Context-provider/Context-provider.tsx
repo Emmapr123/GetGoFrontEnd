@@ -1,5 +1,6 @@
-import React, {useState, createContext, useContext, FunctionComponent, Dispatch, SetStateAction} from 'react';
+import React, {useState, createContext, useContext, FunctionComponent, Dispatch, SetStateAction, useEffect} from 'react';
 import { WorkoutListScreen } from '../../screens';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface MyContextValue {
   myState: string;
@@ -32,8 +33,16 @@ export const useMyContext = () => {
 export const MyContextProvider: FunctionComponent = ({children}) => {
   const [myState, setMyState] = useState('hello');
 
+  const SaveWorkouts = async(workouts?: Workout[]) => {
+    await AsyncStorage.setItem('workouts', JSON.stringify(workouts))
+  }
+
   const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
-  const addWorkout = (workout:Workout) => setMyWorkouts(prev => [...prev,workout])
+  const addWorkout = (workout:Workout) => setMyWorkouts((prev) => {
+    const update = [...prev,workout]
+    SaveWorkouts(update)
+    return update
+  })
   const onDeleteWorkout = (workout:Workout) => setMyWorkouts(prev => prev.filter(w => w.id != workout.id))
   const onEditWorkout = ( workout: Workout ) => setMyWorkouts(prev => prev.map((w) => {
     if (w.id === workout.id) {
@@ -41,6 +50,17 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
     } else 
       return w
   }))
+
+  const loadWorkouts = async() => {
+    const workouts = await AsyncStorage.getItem('workouts')
+    if (workouts) {
+      setMyWorkouts(JSON.parse(workouts))
+    }
+  }
+
+  useEffect(() => {
+    loadWorkouts()
+  })
 
   const value = {
     myWorkouts,
