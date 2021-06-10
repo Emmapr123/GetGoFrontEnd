@@ -1,4 +1,4 @@
-import { RouteProp, useRoute } from '@react-navigation/core';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
 import React, { createRef, useRef, useState } from 'react';
 import { 
   Text,
@@ -19,6 +19,7 @@ type StartWorkoutScreenProp = RouteProp<
 const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
 
   const route = useRoute<StartWorkoutScreenProp>();
+  const navigation = useNavigation()
   const workoutTitle = route?.params?.workout.title
   const exercises = route?.params?.workout.exercises
   const { width, height } = Dimensions.get('window')
@@ -29,7 +30,7 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
     if (currentIndex < exercises.length - 1) {
     flatListRef.current?.scrollToIndex({animated: true, index: currentIndex + 1})
     } else {
-      // props.navigation.navigate("End Workout", {workoutTitle: workout.workoutTitle, exercises: exercises, id: id} )
+      navigation.navigate("WorkoutList")
     }
   }
 
