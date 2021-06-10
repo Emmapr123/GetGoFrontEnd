@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { Button, useMyContext, Workout } from '../../components';
 import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
+import { BinButton } from '../../SVGS';
 
 const WorkoutListScreen = () => {
   const navigation = useNavigation();
@@ -37,10 +38,15 @@ const WorkoutListScreen = () => {
             return addedUp
           }
 
-        return <TouchableOpacity style={styles.workoutContainer} key={workout.id} onPress={() => findWorkout(workout)} >
+        return <View style={styles.workoutContainer}>
+        <TouchableOpacity style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} key={workout.id} onPress={() => findWorkout(workout)} >
           <Text style={styles.title} >{workout.title}</Text>
           <MinutesAndSeconds style={styles.duration} duration={totalDurationFunction()} />
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log('pressed')} >
+          <BinButton style={{flex: 2, marginTop: 22, marginHorizontal: 15}} height={20}/>
+        </TouchableOpacity>
+          </View>
       })}
       </ScrollView>
       <View style={{position: 'absolute', bottom: 32, left: 0, right: 0, zIndex: 3}}>
