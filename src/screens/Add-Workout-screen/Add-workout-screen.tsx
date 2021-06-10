@@ -45,9 +45,13 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
     setCurrentIndex(prev => prev + 1)
   }
 
-  // const deleteExercise = () => {
-
-  // }
+  const deleteExercise = () => {
+    exercises.map((exercise, index) => {
+      if (index === currentIndex) {
+        exercises.splice(index, 1)
+      }
+    })
+  }
 
   // Takes the pressed on exercise from the list, to the top, ready to be editted
   const onEditExcercise = (index:number, key:string, value:string) => setExercises(prev => prev.map((exercise,i) => {
@@ -79,7 +83,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
       <View style={styles.ExercisesButtonBox}>
         <Text style={styles.ExercisesTitle} > Exercises</Text>
         <View style={styles.ExercisesButtons}>
-          <Button style={{marginRight: 15}} text={'%'} onPress={() => console.log('pressed')} />
+          <Button style={{marginRight: 15}} text={'%'} onPress={deleteExercise} />
           <Button text={'+'} onPress={addExercise}/>
         </View>
       </View>

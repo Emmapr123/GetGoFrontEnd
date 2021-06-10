@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {Picker} from '@react-native-picker/picker';
 import { 
   StyleSheet, 
@@ -14,11 +14,8 @@ const EditExerciseComponent = ({
   onChange
 }:ExerciseComponentProps) => {
 
-  const min = Math.floor(duration / 60)
-  const sec = duration - (min * 60) >= 0 ? duration - min * 60 : duration
-
-  const [seconds, setSeconds] = useState(min)
-  const [minutes, setMinutes] = useState(sec)
+  const [seconds, setSeconds] = useState(0)
+  const [minutes, setMinutes] = useState(0)
 
   const secondsArray = [0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55];
   const minutesArray = [0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55,60];
@@ -27,6 +24,11 @@ const EditExerciseComponent = ({
     onChange('duration', `${(minutes * 60 + seconds)}`)
   }, [minutes, seconds])
 
+  useEffect(() => {
+    const min = Math.floor(duration / 60)
+    setMinutes(min)
+    setSeconds(duration - (min * 60) >= 0 ? duration - min * 60 : duration)
+  }, [duration])
 
   return <View style={styles.editExerciseBox}>
     <View style={{flex: 3}}>
