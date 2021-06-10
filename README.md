@@ -4,13 +4,13 @@ A personalized fitness app
 
 ### MPV no. I
 
-Deadline - wed. 9
+Deadline - fri. 11
 
 [Design](https://www.figma.com/file/1hWRTcunU7XxMsq6zxaSZ4/GetGo?node-id=0%3A1)
 
 ``` 
 As a user
-To chose a workout
+To choose a workout
 I want to be able to see a list of available workouts
 ```
 ```
