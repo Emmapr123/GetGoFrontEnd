@@ -1,18 +1,14 @@
 import { RouteProp, useRoute } from '@react-navigation/core';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { 
   Text,
   View,
   Animated,
   StyleSheet,
   Dimensions,
-  TextInput
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
-import { Exercise, Workout, AnimatedBarComponent } from '../../components';
-import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
-
-
+import { Workout, AnimatedBarComponent } from '../../components';
 
 type StartWorkoutScreenProp = RouteProp<
   RootStackParamList,
@@ -38,7 +34,6 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
         onMomentumScrollEnd={ev => {
           const index = Math.round(ev.nativeEvent.contentOffset.x / width);
           setCurrentIndex(index)
-          // setDuration(exercises[index].duration)
         }}
         style={[StyleSheet.absoluteFillObject, {
           height,
@@ -62,7 +57,8 @@ const styles = StyleSheet.create({
     fontSize: 36,
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 30
+    marginTop: 30,
+    fontFamily: 'AppleSDGothicNeo-Regular',
   }
 })
 

@@ -47,13 +47,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     marginBottom: 10,
-    marginHorizontal: 3
+    marginHorizontal: 3,
+    fontFamily: 'AppleSDGothicNeo-Regular'
   },
   duration: {
-    fontSize: 14
+    fontSize: 14,
+    fontFamily: 'AppleSDGothicNeo-Regular'
+
   },
   description: {
     fontSize: 14,
+    fontFamily: 'AppleSDGothicNeo-Thin'
+
   }
 })
 

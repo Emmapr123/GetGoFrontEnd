@@ -35,7 +35,7 @@ const EditExerciseComponent = ({
     </View>
     <View style={styles.line}/>
     <Picker
-        style={{flex: 1}}
+        style={{flex: 1, fontFamily: 'AppleSDGothicNeo-Regular'}}
         itemStyle={{height: 160}}
         selectedValue={minutes}
         onValueChange={(itemValue) =>
@@ -46,7 +46,7 @@ const EditExerciseComponent = ({
             })}
       </Picker>
       <Picker
-        style={{flex: 1}}
+        style={{flex: 1, fontFamily: 'AppleSDGothicNeo-Regular'}}
         itemStyle={{height: 160}}
         selectedValue={seconds}
         onValueChange={(itemValue) => 
@@ -72,15 +72,21 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    marginBottom: 50
+    marginBottom: 50,
+    fontFamily: 'AppleSDGothicNeo-Regular'
+
   },
   duration: {
     color: 'gray',
-    fontSize: 18
+    fontSize: 18,
+    fontFamily: 'AppleSDGothicNeo-Regular'
+
 
   },
   description: {
-    fontSize: 18
+    fontSize: 18,
+    fontFamily: 'AppleSDGothicNeo-Regular'
+
   },
   line: {
     borderRightColor: 'black',

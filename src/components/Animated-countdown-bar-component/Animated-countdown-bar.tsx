@@ -3,7 +3,7 @@ import { Vibration,
   TextInput, 
   Dimensions, 
   View, 
-  Text,
+  StyleSheet,
   Animated } from 'react-native';
 import { Exercise } from '../Context-provider';
 
@@ -78,11 +78,21 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
     />
     <TextInput
       ref={`${inputRef}`}
-      style={{fontSize: 40, width: 70, justifyContent: 'center', alignItems: 'center'}}
+      style={styles.duration}
       defaultValue={duration.toString()}
     />
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  duration: {
+    fontFamily: 'AppleSDGothicNeo-Regular',
+    fontSize: 40, 
+    width: 70, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  }
+})
 
 export { AnimatedBarComponent }

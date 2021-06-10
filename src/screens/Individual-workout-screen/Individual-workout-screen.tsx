@@ -59,20 +59,24 @@ const styles = StyleSheet.create({
     fontSize: 24,
     alignSelf: 'center',
     margin: 18,
+    fontFamily: 'AppleSDGothicNeo-Regular'
   },
   totalDuration:{
     fontSize: 18,
     alignSelf: 'center',
+    fontFamily: 'AppleSDGothicNeo-Regular'
   },
   GoButton: {
     alignSelf: 'center',
     position: 'absolute',
-    bottom: 20
+    bottom: 20,
+    fontFamily: 'AppleSDGothicNeo-Regular'
   },
   editButton: {
     position: 'absolute',
     top: 70,
     right: 20,
+    fontFamily: 'AppleSDGothicNeo-Regular',
   }
 })
 

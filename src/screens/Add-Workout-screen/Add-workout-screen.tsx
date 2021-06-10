@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 0.3,
     margin: 18,
-    paddingLeft: 10
+    paddingLeft: 10,
+    fontFamily: 'AppleSDGothicNeo-Regular'
   },
   line: {
     borderWidth: 0.5,
@@ -120,6 +121,7 @@ const styles = StyleSheet.create({
   ExercisesTitle: {
     fontSize: 24,
     marginBottom: 15,
+    fontFamily: 'AppleSDGothicNeo-Regular',
   },
   ExercisesButtons: {
     marginRight: 18,

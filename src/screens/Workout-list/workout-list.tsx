@@ -58,12 +58,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginTop: 18,
-    marginLeft: 18
+    marginLeft: 18,
+    fontFamily: 'AppleSDGothicNeo-Regular'
   },
   duration: {
     fontSize: 18,
     marginTop: 24,
-    marginLeft: 18
+    marginLeft: 18,
+    fontFamily: 'AppleSDGothicNeo-Regular'
   }
 })
 
