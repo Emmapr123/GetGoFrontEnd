@@ -4,6 +4,7 @@ export interface MyContextValue {
   myState: string;
   setMyState: Dispatch<SetStateAction<string>>
   addWorkout: (workout: Workout) => void;
+  onDeleteWorkout: (workout: Workout) => void;
   myWorkouts: Workout[]
 }
 
@@ -31,10 +32,12 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
 
   const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
   const addWorkout = (workout:Workout) => setMyWorkouts(prev => [...prev,workout])
+  const onDeleteWorkout = (workout:Workout) => setMyWorkouts(prev => prev.filter(w => w.id != workout.id))
 
   const value = {
     myWorkouts,
     addWorkout,
+    onDeleteWorkout,
     myState,
     setMyState,
   };

@@ -43,7 +43,7 @@ const WorkoutListScreen = () => {
           <Text style={styles.title} >{workout.title}</Text>
           <MinutesAndSeconds style={styles.duration} duration={totalDurationFunction()} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('pressed')} >
+        <TouchableOpacity onPress={() => myContext?.onDeleteWorkout(workout)} >
           <BinButton style={{flex: 2, marginTop: 22, marginHorizontal: 15}} height={20}/>
         </TouchableOpacity>
           </View>
