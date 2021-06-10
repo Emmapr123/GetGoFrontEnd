@@ -29,10 +29,21 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
   const route = useRoute<AddWorkoutScreenProp>();
   const existingWorkout = route?.params?.workout
 
+  console.log(existingWorkout)
+
   // Saves a new workout to the context
   const addWorkout = () => {
     myContext?.addWorkout({
       id: `${new Date()}`,
+      title,
+      exercises
+    })
+    navigation.navigate('WorkoutList')
+  }
+
+  const saveChanges = () => {
+    myContext?.onEditWorkout({
+      id: existingWorkout.id,
       title,
       exercises
     })
@@ -64,7 +75,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
   }))
 
   // To edit an existing workout - does not work yet, will come back to this tonight
-  useEffect((existingWorkout?: Workout) => {
+  useEffect(() => {
       if (existingWorkout) {
         setTitle(existingWorkout.title);
         setExercises(existingWorkout.exercises);
@@ -97,7 +108,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
         } else return null
     })}
     </ScrollView>
-    <Button style={styles.saveButton} text={'#'} onPress={addWorkout}/>
+    <Button style={styles.saveButton} text={'#'} onPress={existingWorkout ? saveChanges : addWorkout}/>
     </View>
   )
 }

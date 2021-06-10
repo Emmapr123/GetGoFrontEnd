@@ -33,6 +33,8 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
     return addedUp
   }
 
+  console.log(fullWorkout)
+
   return(
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>

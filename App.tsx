@@ -10,7 +10,7 @@ import { AddWorkoutScreen, EndWorkoutScreen, IndividualWorkoutScreen, StartWorko
 
 type RootStackParamList = {
   WorkoutList: { sort: 'latest' | 'top' } | undefined;
-  AddWorkoutScreen: { workout?: Workout } | undefined;
+  AddWorkoutScreen: { workout: Workout };
   IndividualWorkoutScreen: { workout: Workout } ;
   StartWorkoutScreen: { workout: Workout };
   EndWorkoutScreen: {workoutTitle: string};

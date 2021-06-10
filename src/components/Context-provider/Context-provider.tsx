@@ -1,10 +1,12 @@
 import React, {useState, createContext, useContext, FunctionComponent, Dispatch, SetStateAction} from 'react';
+import { WorkoutListScreen } from '../../screens';
 
 export interface MyContextValue {
   myState: string;
   setMyState: Dispatch<SetStateAction<string>>
   addWorkout: (workout: Workout) => void;
   onDeleteWorkout: (workout: Workout) => void;
+  onEditWorkout: ( workout: Workout ) => void;
   myWorkouts: Workout[]
 }
 
@@ -33,11 +35,18 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
   const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
   const addWorkout = (workout:Workout) => setMyWorkouts(prev => [...prev,workout])
   const onDeleteWorkout = (workout:Workout) => setMyWorkouts(prev => prev.filter(w => w.id != workout.id))
+  const onEditWorkout = ( workout: Workout ) => setMyWorkouts(prev => prev.map((w) => {
+    if (w.id === workout.id) {
+      return workout
+    } else 
+      return w
+  }))
 
   const value = {
     myWorkouts,
     addWorkout,
     onDeleteWorkout,
+    onEditWorkout,
     myState,
     setMyState,
   };
