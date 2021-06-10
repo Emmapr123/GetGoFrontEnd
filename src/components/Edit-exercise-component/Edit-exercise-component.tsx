@@ -26,13 +26,14 @@ const EditExerciseComponent = ({
 
 
   return <View style={styles.editExerciseBox}>
-    <View>
+    <View style={{flex: 3}}>
     <TextInput style={styles.title} placeholder={'Add title'} value={title} onChangeText={(text) => onChange('title', text)}/>
     <TextInput style={styles.description} placeholder={'Add description'} value={description} onChangeText={(text) => onChange('description', text)} />
     </View>
     <View style={styles.line}/>
     <Picker
         style={{flex: 1}}
+        itemStyle={{height: 160}}
         selectedValue={minutes}
         onValueChange={(itemValue) =>
           setMinutes(itemValue)
@@ -43,6 +44,7 @@ const EditExerciseComponent = ({
       </Picker>
       <Picker
         style={{flex: 1}}
+        itemStyle={{height: 160}}
         selectedValue={seconds}
         onValueChange={(itemValue) => 
           setSeconds(itemValue)
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: 150
+    height: 170
   },
   title: {
     fontSize: 18,
