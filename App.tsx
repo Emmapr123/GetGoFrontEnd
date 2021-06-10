@@ -7,6 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { WorkoutListScreen } from './src/screens/Workout-list';
 import { Header, MyContextProvider, Workout } from './src/components';
 import { AddWorkoutScreen, EndWorkoutScreen, IndividualWorkoutScreen, StartWorkoutScreen } from './src/screens';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 type RootStackParamList = {
   WorkoutList: { sort: 'latest' | 'top' } | undefined;
@@ -21,7 +23,15 @@ type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
-  return (
+
+  const [fontsLoaded] = useFonts({
+    Roberto: require('./assets/fonts/Roberto.ttf')
+  })
+
+  if (!fontsLoaded) {
+    return <AppLoading/>
+  } else {
+    return(
     <MyContextProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{header: Header}}>
@@ -32,8 +42,8 @@ export default function App() {
           <Stack.Screen name="EndWorkoutScreen" component={EndWorkoutScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
-    </MyContextProvider>
-  );
+    </MyContextProvider>)
+  }
 }
 
 const styles = StyleSheet.create({
