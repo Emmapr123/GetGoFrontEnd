@@ -90,7 +90,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
       <View style={styles.ExercisesButtonBox}>
         <Text style={styles.ExercisesTitle} > Exercises</Text>
         <View style={styles.ExercisesButtons}>
-          <Button style={{marginRight: 15}} text={'%'} onPress={deleteExercise} />
+          <Button style={{marginRight: 15}} text={<BinButton height={20}/>} onPress={deleteExercise} />
           <Button text={'+'} onPress={addExercise}/>
         </View>
       </View>
@@ -128,7 +128,8 @@ const styles = StyleSheet.create({
   ExercisesButtonBox: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10
+    marginBottom: 10,
+    alignItems: 'center'
   },
   ExercisesTitle: {
     fontSize: 24,
