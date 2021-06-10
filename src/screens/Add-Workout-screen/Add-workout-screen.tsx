@@ -6,7 +6,6 @@ import {
   View,
   TextInput,
   Text,
-  Dimensions,
   TouchableOpacity
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
@@ -25,11 +24,8 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
   const [exercises,setExercises] = useState<Exercise[]>([blankExcercise])
   const [currentIndex,setCurrentIndex] = useState(0)
   const myContext=useMyContext()
-  const { width, height } = Dimensions.get('window')
   const route = useRoute<AddWorkoutScreenProp>();
   const existingWorkout = route?.params?.workout
-
-  console.log(existingWorkout)
 
   // Saves a new workout to the context
   const addWorkout = () => {
@@ -80,7 +76,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
         setTitle(existingWorkout.title);
         setExercises(existingWorkout.exercises);
       }
-    })
+    }, [])
 
   return(
     <View style={{flex: 1}}>
@@ -108,7 +104,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
         } else return null
     })}
     </ScrollView>
-    <Button style={styles.saveButton} text={'#'} onPress={existingWorkout ? saveChanges : addWorkout}/>
+    <Button style={styles.saveButton} text={'Save'} onPress={existingWorkout ? saveChanges : addWorkout}/>
     </View>
   )
 }

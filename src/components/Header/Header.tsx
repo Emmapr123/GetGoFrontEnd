@@ -3,17 +3,14 @@ import {
   StyleSheet, 
   Text, 
   SafeAreaView, 
-  View
 } from 'react-native';
-import { useMyContext } from '../Context-provider';
 
 const Header = () => {
-  const myContext = useMyContext()
 
   return(
     <SafeAreaView style={styles.container}>
       <Text style={{fontSize: 36}}>
-        GetGo ({myContext?.myWorkouts.length})</Text>
+        GetGo</Text>
     </SafeAreaView>
   )
 }
