@@ -14,8 +14,11 @@ const EditExerciseComponent = ({
   onChange
 }:ExerciseComponentProps) => {
 
-  const [seconds, setSeconds] = useState(0)
-  const [minutes, setMinutes] = useState(0)
+  const min = Math.floor(duration / 60)
+  const sec = duration - (min * 60) >= 0 ? duration - min * 60 : duration
+
+  const [seconds, setSeconds] = useState(min)
+  const [minutes, setMinutes] = useState(sec)
 
   const secondsArray = [0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55];
   const minutesArray = [0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55,60];

@@ -16,10 +16,26 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
 
   const { width, height } = Dimensions.get('window')
   const timerAnimation = useRef(new Animated.Value(0)).current;
-  const duration = exercise.duration
-  const inputRef = useRef();
+  const duration = +exercise.duration
+  const inputRef = useRef<TextInput>();
   // console.log(duration)
   // console.log(active)
+
+  React.useEffect(() => {
+    const listener = timerAnimation.addListener(({value}) => {
+      const number = (duration + (value * (1 - duration))).toFixed()
+      inputRef?.current?.setNativeProps({
+        text:  +number < 10 ? `0${number}` : `${number}`
+      })
+    })
+
+    return () => {
+      timerAnimation.removeListener(listener)
+      timerAnimation.removeAllListeners();
+    }
+  })
+
+  console.log(inputRef)
 
   // Now the animation knows where to start and how long it animates for
   const AnimatedExerciseBar = () => {
@@ -67,14 +83,14 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
         ]
       }}
     />
-    {/* <TextInput
-      ref={inputRef}
+    <TextInput
+      ref={() => inputRef}
       style={{fontSize: 40, width: 70, justifyContent: 'center', alignItems: 'center'}}
       defaultValue={duration.toString()}
-    /> */}
-    <Animated.Text>
+    />
+    {/* <Animated.Text>
       {duration}
-    </Animated.Text>
+    </Animated.Text> */}
     </View>
   )
 }
@@ -94,7 +110,7 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
 
   return(
     <View style={{flex: 1}}>
-      <Text>{workoutTitle}</Text>
+      {/* <Text>{workoutTitle}</Text> */}
       <Animated.FlatList 
         data={exercises}
         keyExtractor={exercises => exercises.title}
@@ -112,8 +128,8 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
         snapToInterval={width}
         renderItem={({item, index}) => {
           return <View key={index} style={{width}}>
-              <Text>{item.title}</Text>
-              <MinutesAndSeconds  duration={item.duration}/>
+              <Text style={styles.title} >{item.title}</Text>
+              {/* <MinutesAndSeconds  duration={item.duration}/> */}
               <AnimatedBarComponent exercise={item} active={index === currentIndex}/>
             </View>
         }}
@@ -121,5 +137,14 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 36,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 30
+  }
+})
 
 export { StartWorkoutScreen } 
