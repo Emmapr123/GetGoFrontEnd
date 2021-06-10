@@ -12,7 +12,8 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
   const { width, height } = Dimensions.get('window')
   const timerAnimation = useRef(new Animated.Value(0)).current;
   const duration = +exercise.duration
-  const inputRef = useRef<TextInput>();
+  const newHeight = height - 160
+  const inputRef = useRef<TextInput>(null);
 
   React.useEffect(() => {
     const listener = timerAnimation.addListener(({value}) => {
@@ -41,7 +42,7 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
 
   const moveDown = timerAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, height]
+    outputRange: [1, newHeight]
   })
 
   const opacity = timerAnimation.interpolate({
@@ -77,7 +78,7 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
       }}
     />
     <TextInput
-      ref={`${inputRef}`}
+      ref={inputRef}
       style={styles.duration}
       defaultValue={duration.toString()}
     />

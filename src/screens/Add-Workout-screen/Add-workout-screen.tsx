@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
 import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, EditExerciseComponent, Workout } from '../../components';
+import { BinButton } from '../../SVGS';
 
 type AddWorkoutScreenProp = RouteProp<
   RootStackParamList,
