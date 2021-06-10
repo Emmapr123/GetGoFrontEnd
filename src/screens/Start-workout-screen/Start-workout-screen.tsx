@@ -1,14 +1,15 @@
 import { RouteProp, useRoute } from '@react-navigation/core';
-import React, { useState } from 'react';
+import React, { createRef, useRef, useState } from 'react';
 import { 
   Text,
   View,
   Animated,
   StyleSheet,
   Dimensions,
+  FlatList,
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
-import { Workout, AnimatedBarComponent } from '../../components';
+import { Workout, AnimatedBarComponent, Exercise } from '../../components';
 
 type StartWorkoutScreenProp = RouteProp<
   RootStackParamList,
@@ -22,11 +23,20 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
   const exercises = route?.params?.workout.exercises
   const { width, height } = Dimensions.get('window')
   const [currentIndex, setCurrentIndex] = useState(0)
+  let flatListRef = useRef<FlatList>(null);
+
+  const onAnimationComplete = () => {
+    if (currentIndex < exercises.length - 1) {
+    flatListRef.current?.scrollToIndex({animated: true, index: currentIndex + 1})
+    } else {
+      // props.navigation.navigate("End Workout", {workoutTitle: workout.workoutTitle, exercises: exercises, id: id} )
+    }
+  }
 
   return(
     <View style={{flex: 1}}>
       {/* <Text>{workoutTitle}</Text> */}
-      <Animated.FlatList 
+      <FlatList 
         data={exercises}
         keyExtractor={exercises => exercises.title}
         horizontal
@@ -35,6 +45,7 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
           const index = Math.round(ev.nativeEvent.contentOffset.x / width);
           setCurrentIndex(index)
         }}
+        ref={flatListRef}
         style={[StyleSheet.absoluteFillObject, {
           height,
           width,
@@ -43,8 +54,7 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
         renderItem={({item, index}) => {
           return <View key={index} style={{width}}>
               <Text style={styles.title} >{item.title}</Text>
-              {/* <MinutesAndSeconds  duration={item.duration}/> */}
-              <AnimatedBarComponent exercise={item} active={index === currentIndex}/>
+              <AnimatedBarComponent exercise={item} active={index === currentIndex} {...{onAnimationComplete}}/>
             </View>
         }}
       />

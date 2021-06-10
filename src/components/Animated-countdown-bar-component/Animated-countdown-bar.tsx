@@ -7,7 +7,7 @@ import { Vibration,
   Animated } from 'react-native';
 import { Exercise } from '../Context-provider';
 
-const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: boolean}) => {
+const AnimatedBarComponent = ( {exercise, active, onAnimationComplete}: {exercise: Exercise, active: boolean, onAnimationComplete: () => void}) => {
 
   const { width, height } = Dimensions.get('window')
   const timerAnimation = useRef(new Animated.Value(0)).current;
@@ -37,7 +37,9 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
       toValue: 1,
       duration: duration * 1000,
       useNativeDriver: true
-    }).start()
+    }).start(() => 
+      onAnimationComplete()
+    )
   }
 
   const moveDown = timerAnimation.interpolate({
@@ -50,16 +52,11 @@ const AnimatedBarComponent = ( {exercise, active}: {exercise: Exercise, active: 
     outputRange: [0, 0.5, 1]
   })
 
-  const textTransform = timerAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [-200, 0],
-  });
-
   useEffect(() => {
     if (active) {
       AnimatedExerciseBar();
     }
-  }, [active, duration])
+  }, [active])
 
   return(
     <View style={{flex: 1}}>
