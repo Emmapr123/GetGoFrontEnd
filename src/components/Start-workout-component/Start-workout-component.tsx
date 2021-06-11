@@ -1,4 +1,3 @@
-import { RouteProp } from '@react-navigation/core'
 import React from 'react'
 import { 
   View,
@@ -6,14 +5,8 @@ import {
   StyleSheet,
   Dimensions
  } from "react-native"
-import { RootStackParamList } from '../../../App'
 import { AnimatedBarComponent } from "../Animated-countdown-bar-component"
 import { Exercise } from '../Context-provider'
-
-export type StartWorkoutComponentProp = RouteProp<
-  RootStackParamList,
-  'StartWorkoutScreen'
->
 
 const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}:  {onAnimationComplete: () => void, currentIndex: number, index: number, item: Exercise}) => {
  
