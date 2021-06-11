@@ -1,11 +1,7 @@
 import React from 'react';
-import { StyleProp, Text, ViewStyle } from 'react-native';
+import { Text } from 'react-native';
 import { FindMinutes, FindSeconds } from '../../Helper-functions';
-
-interface MinutesAndSecondsProp {
-  duration: number,
-  style?: StyleProp<ViewStyle>
-}
+import { MinutesAndSecondsProp } from './Minutes-and-seconds.types';
 
 const MinutesAndSeconds = ( {duration, style}: MinutesAndSecondsProp ) => {
   const min = FindMinutes(duration)

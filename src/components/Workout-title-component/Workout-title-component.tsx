@@ -6,7 +6,7 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import { WorkoutTitleComponentProps } from './Workout-title-component.types';
 
-const WorkoutTitleComponent = ( { title, setTitle }:WorkoutTitleComponentProps) => {
+const WorkoutTitleComponent = ( { title, setTitle }: WorkoutTitleComponentProps ) => {
 
   return(
     <View>
@@ -17,7 +17,7 @@ const WorkoutTitleComponent = ( { title, setTitle }:WorkoutTitleComponentProps) 
         value={title}
         />
       <View style={styles.line}/>    
-      </View>
+    </View>
   )
 }
 

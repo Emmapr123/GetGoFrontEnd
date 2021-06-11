@@ -43,12 +43,10 @@ const styles = StyleSheet.create({
   duration: {
     fontSize: 14,
     fontFamily: 'AppleSDGothicNeo-Regular'
-
   },
   description: {
     fontSize: 14,
     fontFamily: 'AppleSDGothicNeo-Thin'
-
   }
 })
 

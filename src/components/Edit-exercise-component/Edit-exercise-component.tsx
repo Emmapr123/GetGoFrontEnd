@@ -5,7 +5,7 @@ import {
   TextInput
 } from 'react-native';
 import { FindMinutes, FindSeconds } from '../../Helper-functions';
-import { ExerciseComponentProps } from '../Exercise-component/Exercise-component.types';
+import { ExerciseComponentProps } from '../Exercise-component';
 import { TimePickerComPonent } from '../Time-picker-component';
 
 const EditExerciseComponent = ({
