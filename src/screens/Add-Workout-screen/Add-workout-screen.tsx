@@ -3,12 +3,10 @@ import {
   StyleSheet, 
   ScrollView,
   View,
-  TextInput,
-  Text,
   TouchableOpacity
 } from 'react-native';
-import { Button, ExerciseComponent, EditExerciseComponent, WorkoutTitleComponent } from '../../components';
-import { BinButton, SaveButton, AddButton } from '../../SVGS';
+import { Button, ExerciseComponent, EditExerciseComponent, WorkoutTitleComponent, ExerciseHeaderComponent } from '../../components';
+import {  SaveButton } from '../../SVGS';
 import { useAddWorkout } from './Add-workout-screen.hooks';
 
 const AddWorkoutScreen = () => {
@@ -18,13 +16,7 @@ const AddWorkoutScreen = () => {
   return(
     <View style={{flex: 1}}>
       <WorkoutTitleComponent {...{title, setTitle}}/>
-      <View style={styles.ExercisesButtonBox}>
-        <Text style={styles.ExercisesTitle} > Exercises</Text>
-        <View style={styles.ExercisesButtons}>
-          <Button style={{marginRight: 15}} text={<BinButton height={20}/>} onPress={deleteExercise} />
-          <Button text={<AddButton height={20} width={20}/>} onPress={addExercise}/>
-        </View>
-      </View>
+      <ExerciseHeaderComponent {...{addExercise, deleteExercise}} />
       <EditExerciseComponent {...exercises[currentIndex]} onChange={(key,value) => onEditExercise(currentIndex, key,value)}/>
       <ScrollView>
       {exercises.map((exercise,index) =>  {
@@ -41,23 +33,7 @@ const AddWorkoutScreen = () => {
 }
 
 const styles = StyleSheet.create({
-  ExercisesButtonBox: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    alignItems: 'center'
-  },
-  ExercisesTitle: {
-    fontSize: 24,
-    marginBottom: 15,
-    marginTop: 10,
-    marginLeft: 10,
-    fontFamily: 'AppleSDGothicNeo-Regular',
-  },
-  ExercisesButtons: {
-    marginRight: 18,
-    flexDirection: 'row',
- },
+
  saveButton: {
    position: 'relative',
    alignItems: 'flex-end',
