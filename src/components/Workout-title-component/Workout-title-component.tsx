@@ -1,14 +1,9 @@
-import React, { Dispatch, SetStateAction } from 'react';
 import { 
   StyleSheet, 
   View,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-
-interface WorkoutTitleComponentProps {
-  title: string,
-  setTitle: Dispatch<SetStateAction<string>>
-}
+import { WorkoutTitleComponentProps } from './Workout-title-component.types';
 
 const WorkoutTitleComponent = ( { title, setTitle }:WorkoutTitleComponentProps) => {
 
