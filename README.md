@@ -3,7 +3,7 @@
 A personalized fitness app
 
 <!-- ![App preview](app_screenshot.png) -->
-![something](../assets/Examples/SCreenShot1.png)
+![something](./assets/Examples/ScreenShot1.png)
 
 ## Walkthrough
 
