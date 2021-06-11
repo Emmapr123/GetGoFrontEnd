@@ -6,10 +6,10 @@ import {
   Dimensions,
   FlatList,
 } from 'react-native';
-import { Workout, StartWorkoutComponent } from '../../components';
+import { StartWorkoutComponent } from '../../components';
 import { StartWorkoutScreenProp } from './start-workout-screen.types';
 
-const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
+const StartWorkoutScreen = () => {
 
   const route = useRoute<StartWorkoutScreenProp>();
   const navigation = useNavigation()

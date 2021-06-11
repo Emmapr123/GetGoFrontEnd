@@ -6,12 +6,12 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import { Workout, ExerciseComponent, Button } from '../../components';
-import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
+import { ExerciseComponent, Button, MinutesAndSeconds } from '../../components';
+import { totalDuration } from '../../Helper-functions';
 import { EditButton } from '../../SVGS';
 import { IndividualWorkoutScreenProp } from './individual-workout-screen.types';
 
-const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
+const IndividualWorkoutScreen = () => {
   
   const route = useRoute<IndividualWorkoutScreenProp>();
   const fullWorkout = route?.params?.workout
@@ -19,30 +19,18 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   const exercises = fullWorkout?.exercises
   const navigation = useNavigation()
 
-  const totalDurationFunction = () => {
-    const sum = exercises.map((exercise) => {
-      return +exercise.duration
-    })
-    const addedUp = sum.reduce(function(a, b){
-        return a + b;
-      }, 0)
-    return addedUp
-  }
-
   return(
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
-      <MinutesAndSeconds style={styles.totalDuration} duration={totalDurationFunction()}/>
+      <MinutesAndSeconds style={styles.totalDuration} duration={totalDuration(fullWorkout)}/>
       <Button text={<EditButton height={20}/>} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
       <ScrollView>
       {exercises.map((exercise,index) =>  {
-          return <View key={index} >
-            <ExerciseComponent  
+          return <ExerciseComponent key={index}
               title={exercise.title} 
               duration={exercise.duration} 
               description={exercise.description} 
               onChange={() => console.log('changed')} />
-          </View>
     })}
       </ScrollView>
       <Button text={'GO!'} style={styles.GoButton} onPress={() => navigation.navigate("StartWorkoutScreen", { workout: fullWorkout } )} />
