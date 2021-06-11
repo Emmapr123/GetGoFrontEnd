@@ -2,7 +2,7 @@
 
 A personalized fitness app
 
-[../assets/Examples/SCreenShot1.png]
+[something](../assets/Examples/SCreenShot1.png)
 
 ## Walkthrough
 
