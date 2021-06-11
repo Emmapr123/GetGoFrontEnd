@@ -1,12 +1,11 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { 
   Text, 
-  StyleProp,
-  ViewStyle,
   TouchableOpacity
 } from 'react-native';
+import { ButtonProps } from './Button.types';
 
-const Button = ({style, text, onPress}: {style?: StyleProp<ViewStyle>, text?: string | ReactNode, onPress: () => void}) => {
+const Button = ({style, text, onPress}: ButtonProps) => {
 
   return(
     <TouchableOpacity {...{style, onPress}}>
