@@ -4,6 +4,7 @@ import {
   View,
   TextInput
 } from 'react-native';
+import { FindMinutes, FindSeconds } from '../../Helper-functions';
 import { ExerciseComponentProps } from '../Exercise-component/Exercise-component.types';
 import { TimePickerComPonent } from '../Time-picker-component';
 
@@ -22,9 +23,8 @@ const EditExerciseComponent = ({
   }, [minutes, seconds])
 
   useEffect(() => {
-    const min = Math.floor(duration / 60)
-    setMinutes(min)
-    setSeconds(duration - (min * 60) >= 0 ? duration - min * 60 : duration)
+    setMinutes(FindMinutes(duration))
+    setSeconds(FindSeconds(duration, minutes))
   }, [duration])
 
   return <View style={styles.editExerciseBox}>

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Vibration, 
-  TextInput, 
+import { TextInput, 
   Dimensions, 
   View, 
   StyleSheet,
