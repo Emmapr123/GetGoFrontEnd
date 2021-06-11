@@ -1,26 +1,6 @@
 import React, {useState, createContext, useContext, FunctionComponent, Dispatch, SetStateAction, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-export interface MyContextValue {
-  myState: string;
-  setMyState: Dispatch<SetStateAction<string>>
-  addWorkout: (workout: Workout) => void;
-  onDeleteWorkout: (workout: Workout) => void;
-  onEditWorkout: ( workout: Workout ) => void;
-  myWorkouts: Workout[]
-}
-
-export interface Workout {
-  id: string;
-  title: string;
-  exercises: Exercise[]
-}
-
-export interface Exercise {
-  title: string;
-  description: string;
-  duration: number
-}
+import { MyContextValue, Workout } from './Context-provider.types';
 
 export const MyContext = createContext<MyContextValue | undefined>(undefined);
 
@@ -30,13 +10,11 @@ export const useMyContext = () => {
 };
 
 export const MyContextProvider: FunctionComponent = ({children}) => {
-  const [myState, setMyState] = useState('hello');
+  const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
 
   const SaveWorkouts = async(workouts?: Workout[]) => {
     await AsyncStorage.setItem('workouts', JSON.stringify(workouts))
   }
-
-  const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
 
   const addWorkout = (workout:Workout) => setMyWorkouts((prev) => {
     const update = [...prev,workout]
@@ -77,8 +55,6 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
     addWorkout,
     onDeleteWorkout,
     onEditWorkout,
-    myState,
-    setMyState,
   };
 
   return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
