@@ -5,22 +5,44 @@ A personalized fitness app
 ## Walkthrough
 
 ```
-When you open the app, at first you will see an empty screen, with a logo at the top and an add button at the bottom.
+When you open the app, at first you will see an empty screen, 
+with a logo at the top and an add button at the bottom.
+
 Press the add button to create your first workout
-Give the workout a title, and create your first exxercise.
-When you are happy with this exercise you can press the + button to add an other one.
-If you want to edit an exercise, simply press the workout description.
-You can also scroll through the list of workouts to see all of them.
-If you want to delete a workout, press it to get it in the edit box, and press the bin button at the top.
-When you are scatisfied with your exercise list, you can press the save button at the bottom of the page
-This takes you back to the first page, as you can see it has now added your workout and tells you the time it would take
+
+Give the workout a title, and create your first exercise.
+
+When you are happy with this exercise:
+press the + button to add an other one.
+
+If you want to edit an exercise: 
+press the exercise.
+
+You can also through the list of workouts to see all of them.
+
+If you want to delete a workout:
+press it to get it in the edit box, and press the bin button at the top.
+
+When you are scatisfied with your exercise list:
+you can press the save button at the bottom of the page
+This takes you back to the first page.
+
+As you can see it has now added your workout and tells you it's total duration
 You can press the workout, which will take you to an overview of the exercises.
-To edit this workout, you can press the edit button next to the total duration
-To start your workout, press the GO! button at the bottom
-The workout will play itself and let you know how many seconds are left, as well as show you a progress bar
+
+To edit this workout: press the edit button next to the total duration
+
+To start your workout: press the GO! button at the bottom
+
+The workout will play itself
+It let you know how many seconds are left
+as well as show you a progress bar
 When the exercise is finished, this will take you back to the first page.
+
 On this page you can also delete workouts
-When you close the app, the state is saved to your local storage, so when you restart the app you will still have all of your saved workouts.
+When you close the app:
+the state is saved to your local storage,
+When you restart the app you will still have all of your saved workouts.
 
 Have fun!
 ```
