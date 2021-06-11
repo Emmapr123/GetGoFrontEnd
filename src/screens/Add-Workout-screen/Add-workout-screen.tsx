@@ -11,6 +11,7 @@ import {
 import { RootStackParamList } from '../../../App';
 import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, EditExerciseComponent, Workout } from '../../components';
 import { BinButton, SaveButton } from '../../SVGS';
+import { AddButton } from '../../SVGS/Add-button/Add-button';
 
 type AddWorkoutScreenProp = RouteProp<
   RootStackParamList,
@@ -91,7 +92,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
         <Text style={styles.ExercisesTitle} > Exercises</Text>
         <View style={styles.ExercisesButtons}>
           <Button style={{marginRight: 15}} text={<BinButton height={20}/>} onPress={deleteExercise} />
-          <Button text={'+'} onPress={addExercise}/>
+          <Button text={<AddButton height={20} width={20}/>} onPress={addExercise}/>
         </View>
       </View>
       <EditExerciseComponent {...exercises[currentIndex]} onChange={(key,value) => onEditExcercise(currentIndex, key,value)}/>
@@ -134,6 +135,8 @@ const styles = StyleSheet.create({
   ExercisesTitle: {
     fontSize: 24,
     marginBottom: 15,
+    marginTop: 10,
+    marginLeft: 10,
     fontFamily: 'AppleSDGothicNeo-Regular',
   },
   ExercisesButtons: {
