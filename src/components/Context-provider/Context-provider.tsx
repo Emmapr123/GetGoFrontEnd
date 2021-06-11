@@ -38,18 +38,29 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
   }
 
   const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
+
   const addWorkout = (workout:Workout) => setMyWorkouts((prev) => {
     const update = [...prev,workout]
     SaveWorkouts(update)
     return update
   })
-  const onDeleteWorkout = (workout:Workout) => setMyWorkouts(prev => prev.filter(w => w.id != workout.id))
-  const onEditWorkout = ( workout: Workout ) => setMyWorkouts(prev => prev.map((w) => {
-    if (w.id === workout.id) {
-      return workout
-    } else 
-      return w
-  }))
+
+  const onDeleteWorkout = (workout:Workout) => setMyWorkouts((prev) => {
+    const update = prev.filter(w => w.id != workout.id)
+    SaveWorkouts(update)
+    return update
+  })
+
+  const onEditWorkout = ( workout: Workout ) => setMyWorkouts((prev) => {
+    const update = prev.map((w) => {
+      if (w.id === workout.id) {
+        return workout
+      } else 
+        return w
+    })
+    SaveWorkouts(update)
+    return update
+  })
 
   const loadWorkouts = async() => {
     const workouts = await AsyncStorage.getItem('workouts')
