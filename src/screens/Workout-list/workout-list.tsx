@@ -16,7 +16,7 @@ const WorkoutListScreen = () => {
 
   return(
     <SafeAreaView style={{flex: 1}}>
-      <ScrollView style={{flex: 1, position: 'relative'}}>
+      <ScrollView style={styles.scrollView}>
         {workouts?.map((workout) => {
           return <WorkoutListItem key={workout.id} {...workout} />
       })}
@@ -29,6 +29,10 @@ const WorkoutListScreen = () => {
 }
 
 const styles = StyleSheet.create({
+  scrollView:{
+    flex: 1, 
+    position: 'relative'
+  },
   buttonBox: {
     position: 'absolute', 
     bottom: 32, 
