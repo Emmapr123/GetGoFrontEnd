@@ -38,7 +38,7 @@ const WorkoutListScreen = () => {
             return addedUp
           }
 
-        return <View style={styles.workoutContainer}>
+        return <View key={workout.id} style={styles.workoutContainer}>
         <TouchableOpacity style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} key={workout.id} onPress={() => findWorkout(workout)} >
           <Text style={styles.title} >{workout.title}</Text>
           <MinutesAndSeconds style={styles.duration} duration={totalDurationFunction()} />

@@ -1,20 +1,14 @@
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
-import React, { createRef, useRef, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/core';
+import React, { useRef, useState } from 'react';
 import { 
   Text,
   View,
-  Animated,
   StyleSheet,
   Dimensions,
   FlatList,
 } from 'react-native';
-import { RootStackParamList } from '../../../App';
-import { Workout, AnimatedBarComponent, Exercise } from '../../components';
-
-type StartWorkoutScreenProp = RouteProp<
-  RootStackParamList,
-  'StartWorkoutScreen'
->
+import { Workout, AnimatedBarComponent } from '../../components';
+import { StartWorkoutScreenProp } from './start-workout-screen.types';
 
 const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
 
@@ -36,7 +30,6 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
 
   return(
     <View style={{flex: 1}}>
-      {/* <Text>{workoutTitle}</Text> */}
       <FlatList 
         data={exercises}
         keyExtractor={exercises => exercises.title}
@@ -55,6 +48,7 @@ const StartWorkoutScreen = ( {workout}: {workout: Workout}) => {
         renderItem={({item, index}) => {
           return <View key={index} style={{width}}>
               <Text style={styles.title} >{item.title}</Text>
+              <Text style={styles.description} > {item.description} </Text>
               <AnimatedBarComponent exercise={item} active={index === currentIndex} {...{onAnimationComplete}}/>
             </View>
         }}
@@ -70,6 +64,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 30,
     fontFamily: 'AppleSDGothicNeo-Regular',
+  },
+  description: {
+    fontFamily: 'AppleSDGothicNeo-Regular',
+    fontSize: 18,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 10,
   }
 })
 

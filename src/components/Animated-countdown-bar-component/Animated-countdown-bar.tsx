@@ -74,11 +74,13 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete}: {exercis
         ]
       }}
     />
-    <TextInput
-      ref={inputRef}
-      style={styles.duration}
-      defaultValue={duration.toString()}
-    />
+    <View style={styles.timer}>
+      <TextInput
+        ref={inputRef}
+        style={styles.duration}
+        defaultValue={duration.toString()}
+      />
+    </View>
     </View>
   )
 }
@@ -88,8 +90,11 @@ const styles = StyleSheet.create({
     fontFamily: 'AppleSDGothicNeo-Regular',
     fontSize: 40, 
     width: 70, 
-    justifyContent: 'center', 
-    alignItems: 'center'
+  },
+  timer: {
+    alignItems:'center',
+    flex: 1,
+    top: '75%'
   }
 })
 

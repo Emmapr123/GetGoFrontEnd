@@ -1,4 +1,4 @@
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import React from 'react';
 import { 
   View,
@@ -6,15 +6,10 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import { Workout, ExerciseComponent, Button, Exercise } from '../../components';
-import { RootStackParamList } from '../../../App'
+import { Workout, ExerciseComponent, Button } from '../../components';
 import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
 import { EditButton } from '../../SVGS';
-
-type IndividualWorkoutScreenProp = RouteProp<
-  RootStackParamList,
-  'IndividualWorkoutScreen'
->
+import { IndividualWorkoutScreenProp } from './individual-workout-screen.types';
 
 const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
   
@@ -71,6 +66,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     bottom: 20,
+    fontSize: 36,
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   editButton: {
