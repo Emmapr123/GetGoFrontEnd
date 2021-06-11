@@ -1,7 +1,7 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
 import {useEffect, useState} from 'react';
 import { Exercise, useMyContext, blankExcercise } from '../../components';
-import { AddWorkoutScreenProp } from './Add-workout-screen.types';
+import { AddWorkoutScreenProp } from '../../routes';
 
 const useAddWorkout = () => {
   const navigation = useNavigation();

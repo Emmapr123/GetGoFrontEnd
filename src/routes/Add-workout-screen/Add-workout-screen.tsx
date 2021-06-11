@@ -1,5 +1,5 @@
 import { RouteProp } from "@react-navigation/core";
-import { RootStackParamList } from "../../../App";
+import { RootStackParamList } from "../Main-stack";
 
 export type AddWorkoutScreenProp = RouteProp<
 RootStackParamList,

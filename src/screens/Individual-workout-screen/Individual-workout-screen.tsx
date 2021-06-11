@@ -6,10 +6,10 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import { ExerciseComponent, Button, MinutesAndSeconds } from '../../components';
+import { ExerciseComponent, Button, MinutesAndSeconds, Exercise } from '../../components';
 import { totalDuration } from '../../Helper-functions';
+import { IndividualWorkoutScreenProp } from '../../routes';
 import { EditButton } from '../../SVGS';
-import { IndividualWorkoutScreenProp } from './individual-workout-screen.types';
 
 const IndividualWorkoutScreen = () => {
   
@@ -25,7 +25,7 @@ const IndividualWorkoutScreen = () => {
       <MinutesAndSeconds style={styles.totalDuration} duration={totalDuration(fullWorkout)}/>
       <Button text={<EditButton height={20}/>} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
       <ScrollView>
-      {exercises.map((exercise,index) =>  {
+      {exercises.map((exercise: Exercise, index: number) =>  {
           return <ExerciseComponent key={index}
               title={exercise.title} 
               duration={exercise.duration} 
