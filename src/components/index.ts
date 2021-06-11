@@ -9,3 +9,4 @@ export * from './Minutes-and-seconds';
 export * from './Workout-list-item';
 export * from './Start-workout-component';
 export * from './Exercise-header-component';
+export * from './Time-picker-component';

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {Picker} from '@react-native-picker/picker';
 import { 
   StyleSheet, 
   View,
   TextInput
 } from 'react-native';
-import { ExerciseComponentProps } from '../Exercise-component'
+import { ExerciseComponentProps } from '../Exercise-component/Exercise-component.types';
+import { TimePickerComPonent } from '../Time-picker-component';
 
 const EditExerciseComponent = ({
   title,
@@ -16,9 +16,6 @@ const EditExerciseComponent = ({
 
   const [seconds, setSeconds] = useState(0)
   const [minutes, setMinutes] = useState(0)
-
-  const secondsArray = [0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55];
-  const minutesArray = [0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,55,60];
 
   useEffect(() => {
     onChange('duration', `${(minutes * 60 + seconds)}`)
@@ -36,28 +33,7 @@ const EditExerciseComponent = ({
     <TextInput style={styles.description} placeholder={'Add description'} value={description} onChangeText={(text) => onChange('description', text)} />
     </View>
     <View style={styles.line}/>
-    <Picker
-        style={{flex: 1, fontFamily: 'AppleSDGothicNeo-Regular'}}
-        itemStyle={{height: 160}}
-        selectedValue={minutes}
-        onValueChange={(itemValue) =>
-          setMinutes(itemValue)
-        }>
-            {minutesArray.map((minute) => {
-             return <Picker.Item key={minute} label={`${minute}`} value={minute} />
-            })}
-      </Picker>
-      <Picker
-        style={{flex: 1, fontFamily: 'AppleSDGothicNeo-Regular'}}
-        itemStyle={{height: 160}}
-        selectedValue={seconds}
-        onValueChange={(itemValue) => 
-          setSeconds(itemValue)
-        }>
-          {secondsArray.map((seconds) => {
-             return <Picker.Item key={seconds} label={`${seconds}`} value={seconds} />
-            })}
-      </Picker>
+    <TimePickerComPonent {...{minutes, setMinutes, seconds, setSeconds}} />
   </View>
 }
 
@@ -76,19 +52,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 50,
     fontFamily: 'AppleSDGothicNeo-Regular'
-
-  },
-  duration: {
-    color: 'gray',
-    fontSize: 18,
-    fontFamily: 'AppleSDGothicNeo-Regular'
-
-
   },
   description: {
     fontSize: 18,
     fontFamily: 'AppleSDGothicNeo-Regular'
-
   },
   line: {
     borderRightColor: 'black',

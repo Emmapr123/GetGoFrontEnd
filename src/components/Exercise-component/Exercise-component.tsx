@@ -12,13 +12,14 @@ const ExerciseComponent = ({
   duration,
   description,
 }:ExerciseComponentProps) => {
-  return <View style={styles.exerciseBox} >
+  return (
+  <View style={styles.exerciseBox} >
     <View style={styles.titleAndDuration}>
       <Text style={styles.title} >{title}</Text>
       <MinutesAndSeconds {...{duration}} />
     </View>
     <Text> {description} </Text>
-  </View>
+  </View>)
 }
 
 const styles = StyleSheet.create({
