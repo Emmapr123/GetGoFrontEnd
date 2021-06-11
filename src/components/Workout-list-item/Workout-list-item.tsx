@@ -16,25 +16,31 @@ const WorkoutListItem = (workout: Workout) => {
 
   const navigation = useNavigation()
   const myContext = useMyContext()
+  const duration = useMemo(() => totalDuration(workout),[workout])
 
   const findWorkout = (workout: Workout) => {
     navigation.navigate("IndividualWorkoutScreen", {workout: workout})
   }
-  const duration = useMemo(() => totalDuration(workout),[workout])
 
-return (<View key={workout.id} style={styles.workoutContainer}>
-<TouchableOpacity style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1}} key={workout.id} onPress={() => findWorkout(workout)} >
-  <Text style={styles.title} >{workout.title}</Text>
-  <MinutesAndSeconds style={styles.duration} duration={duration} />
-</TouchableOpacity>
-<Button text={<BinButton height={20}/>} onPress={() => myContext?.onDeleteWorkout(workout)} style={{marginTop: 22, marginHorizontal: 15}} />
-  </View>
-)}
+  return (
+    <View key={workout.id} style={styles.workoutContainer}>
+      <TouchableOpacity style={styles.touchableOpacity} key={workout.id} onPress={() => findWorkout(workout)} >
+        <Text style={styles.title} >{workout.title}</Text>
+        <MinutesAndSeconds style={styles.duration} duration={duration} />
+      </TouchableOpacity>
+      <Button text={<BinButton height={20}/>} onPress={() => myContext?.onDeleteWorkout(workout)} style={styles.BinButton} />
+    </View>
+  )}
 
 const styles = StyleSheet.create({
   workoutContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  touchableOpacity: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    flex: 1
   },
   title: {
     fontSize: 24,
@@ -47,6 +53,10 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginLeft: 18,
     fontFamily: 'AppleSDGothicNeo-Regular'
+  },
+  BinButton: {
+    marginTop: 22, 
+    marginHorizontal: 15
   }
 })
 
