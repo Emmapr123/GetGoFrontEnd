@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-import { Button, ExerciseComponent, EditExerciseComponent } from '../../components';
+import { Button, ExerciseComponent, EditExerciseComponent, WorkoutTitleComponent } from '../../components';
 import { BinButton, SaveButton, AddButton } from '../../SVGS';
 import { useAddWorkout } from './Add-workout-screen.hooks';
 
@@ -17,13 +17,7 @@ const AddWorkoutScreen = () => {
 
   return(
     <View style={{flex: 1}}>
-      <TextInput 
-       placeholder="Workout title"
-       style={styles.workoutTitle}
-       onChangeText={(text) => setTitle(text)}
-       value={title}
-      />
-      <View style={styles.line}/>
+      <WorkoutTitleComponent {...{title, setTitle}}/>
       <View style={styles.ExercisesButtonBox}>
         <Text style={styles.ExercisesTitle} > Exercises</Text>
         <View style={styles.ExercisesButtons}>
@@ -47,21 +41,6 @@ const AddWorkoutScreen = () => {
 }
 
 const styles = StyleSheet.create({
-  workoutTitle: {
-    height: 40,
-    fontSize: 18,
-    borderColor: 'black',
-    borderWidth: 0.3,
-    margin: 18,
-    paddingLeft: 10,
-    fontFamily: 'AppleSDGothicNeo-Regular'
-  },
-  line: {
-    borderWidth: 0.5,
-    borderColor: 'black',
-    marginTop: 2,
-    margin: 10
-  },
   ExercisesButtonBox: {
     flexDirection: 'row',
     justifyContent: 'space-between',

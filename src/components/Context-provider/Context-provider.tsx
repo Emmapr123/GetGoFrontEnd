@@ -1,5 +1,4 @@
 import React, {useState, createContext, useContext, FunctionComponent, Dispatch, SetStateAction, useEffect} from 'react';
-import { WorkoutListScreen } from '../../screens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface MyContextValue {

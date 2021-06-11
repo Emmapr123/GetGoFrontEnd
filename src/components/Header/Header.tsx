@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   StyleSheet, 
-  Text, 
   SafeAreaView,
   View, 
 } from 'react-native';
@@ -12,7 +11,7 @@ const Header = () => {
   return(
     <SafeAreaView >
       <View style={styles.container}>
-      <LogoHeader height={24} />
+        <LogoHeader height={24} />
       </View>
     </SafeAreaView>
   )

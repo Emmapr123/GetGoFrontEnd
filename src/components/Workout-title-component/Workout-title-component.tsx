@@ -1,42 +1,45 @@
-import React from 'react';
-import { useMyContext } from '../Context-provider';
+import React, { Dispatch, SetStateAction } from 'react';
 import { 
   StyleSheet, 
-  Text, 
-  TouchableOpacity,
-  ScrollView,
+  View,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
+import { TextInput } from 'react-native-gesture-handler';
 
-const WorkoutTitleComponent = ({onPress}: {onPress: () => void}) => {
+interface WorkoutTitleComponentProps {
+  title: string,
+  setTitle: Dispatch<SetStateAction<string>>
+}
 
-  // I get the workouts from my context provider component
-  const myContext = useMyContext()  
-  const navigation = useNavigation()
-  const workout = myContext?.myWorkouts
-  console.log(workout?.map((workout) => {
-    workout.exercises.map((exercise) => {
-      return exercise.duration
-    })
-  }))
+const WorkoutTitleComponent = ( { title, setTitle }:WorkoutTitleComponentProps) => {
 
   return(
-    <ScrollView>
-      {workout?.map((workout) => {
-        return <TouchableOpacity key={workout.id} {...{onPress}}>
-          <Text style={styles.title} >{workout.title}</Text>
-        </TouchableOpacity>
-      })}
-    </ScrollView>
+    <View>
+      <TextInput 
+        placeholder="Workout title"
+        style={styles.workoutTitle}
+        onChangeText={(text) => setTitle(text)}
+        value={title}
+        />
+      <View style={styles.line}/>    
+      </View>
   )
 }
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    marginTop: 18,
-    marginLeft: 18,
+  workoutTitle: {
+    height: 40,
+    fontSize: 18,
+    borderColor: 'black',
+    borderWidth: 0.3,
+    margin: 18,
+    paddingLeft: 10,
     fontFamily: 'AppleSDGothicNeo-Regular'
+  },
+  line: {
+    borderWidth: 0.5,
+    borderColor: 'black',
+    marginTop: 2,
+    margin: 10
   }
 })
 
