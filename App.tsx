@@ -16,8 +16,6 @@ type RootStackParamList = {
   IndividualWorkoutScreen: { workout: Workout } ;
   StartWorkoutScreen: { workout: Workout };
   EndWorkoutScreen: {workoutTitle: string};
-  // Profile: { userId: string };
-  // Feed: { sort: 'latest' | 'top' } | undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

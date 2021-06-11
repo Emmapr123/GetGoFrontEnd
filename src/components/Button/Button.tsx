@@ -5,7 +5,6 @@ import {
   ViewStyle,
   TouchableOpacity
 } from 'react-native';
-import Svg, { SvgProps } from 'react-native-svg';
 
 const Button = ({style, text, onPress}: {style?: StyleProp<ViewStyle>, text?: string | ReactNode, onPress: () => void}) => {
 
