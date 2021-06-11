@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
 import { Button, Exercise, useMyContext, ExerciseComponent, blankExcercise, EditExerciseComponent, Workout } from '../../components';
-import { BinButton } from '../../SVGS';
+import { BinButton, SaveButton } from '../../SVGS';
 
 type AddWorkoutScreenProp = RouteProp<
   RootStackParamList,
@@ -104,7 +104,7 @@ const AddWorkoutScreen = ( {workout}: {workout?: Workout}) => {
         } else return null
     })}
     </ScrollView>
-    <Button style={styles.saveButton} text={'Save'} onPress={existingWorkout ? saveChanges : addWorkout}/>
+    <Button style={styles.saveButton} text={<SaveButton height={30}/>} onPress={existingWorkout ? saveChanges : addWorkout}/>
     </View>
   )
 }
@@ -143,8 +143,8 @@ const styles = StyleSheet.create({
  saveButton: {
    position: 'relative',
    alignItems: 'flex-end',
-   right: 30,
-   bottom: 30
+   right: 20,
+   bottom: 40
  }
 })
 

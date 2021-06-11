@@ -44,9 +44,6 @@ const WorkoutListScreen = () => {
           <MinutesAndSeconds style={styles.duration} duration={totalDurationFunction()} />
         </TouchableOpacity>
         <Button text={<BinButton height={20}/>} onPress={() => myContext?.onDeleteWorkout(workout)} style={{marginTop: 22, marginHorizontal: 15}} />
-        {/* <TouchableOpacity onPress={() => myContext?.onDeleteWorkout(workout)} >
-          <BinButton style={{flex: 2, marginTop: 22, marginHorizontal: 15}} height={20}/>
-        </TouchableOpacity> */}
           </View>
       })}
       </ScrollView>

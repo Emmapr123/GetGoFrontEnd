@@ -6,7 +6,6 @@ function BinButton(props: SvgProps) {
   const { width=28, height=40, stroke="#1d1d1b" } = props
   return (
     <Svg
-      // xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
       viewBox="0 0 80.28 114.14"
