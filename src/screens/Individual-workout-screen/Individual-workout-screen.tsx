@@ -9,6 +9,7 @@ import {
 import { Workout, ExerciseComponent, Button, Exercise } from '../../components';
 import { RootStackParamList } from '../../../App'
 import { MinutesAndSeconds } from '../../components/Minutes-and-seconds/Minutes-and-seconds';
+import { EditButton } from '../../SVGS';
 
 type IndividualWorkoutScreenProp = RouteProp<
   RootStackParamList,
@@ -37,7 +38,7 @@ const IndividualWorkoutScreen = ( {workout}: {workout: Workout} ) => {
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
       <MinutesAndSeconds style={styles.totalDuration} duration={totalDurationFunction()}/>
-      <Button text={'Edit'} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
+      <Button text={<EditButton height={20}/>} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
       <ScrollView>
       {exercises.map((exercise,index) =>  {
           return <View key={index} >
