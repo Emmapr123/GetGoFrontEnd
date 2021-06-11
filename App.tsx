@@ -6,7 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { WorkoutListScreen } from './src/screens/Workout-list';
 import { Header, MyContextProvider } from './src/components';
-import { AddWorkoutScreen, IndividualWorkoutScreen, StartWorkoutScreen } from './src/screens';
+import { AddWorkoutScreen, 
+  IndividualWorkoutScreen, 
+  StartWorkoutScreen } from './src/screens';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { RootStackParamList } from './src/routes';

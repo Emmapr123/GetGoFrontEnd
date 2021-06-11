@@ -11,7 +11,18 @@ import { useAddWorkout } from './Add-workout-screen.hooks';
 
 const AddWorkoutScreen = () => {
 
-  const { onEditExercise, deleteExercise, addExercise, saveChanges, addWorkout, title, exercises, currentIndex, setTitle, existingWorkout, setCurrentIndex } = useAddWorkout()
+  const { onEditExercise, 
+    deleteExercise, 
+    addExercise, 
+    saveChanges, 
+    addWorkout, 
+    title, 
+    exercises, 
+    currentIndex, 
+    setTitle, 
+    existingWorkout, 
+    setCurrentIndex 
+  } = useAddWorkout()
 
   return(
     <View style={{flex: 1}}>
