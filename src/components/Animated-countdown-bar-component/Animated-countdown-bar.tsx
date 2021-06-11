@@ -4,9 +4,9 @@ import { TextInput,
   View, 
   StyleSheet,
   Animated } from 'react-native';
-import { Exercise } from '../Context-provider';
+import { AnimatedBarComponentProps } from './Animated-bar-component.types';
 
-const AnimatedBarComponent = ( {exercise, active, onAnimationComplete}: {exercise: Exercise, active: boolean, onAnimationComplete: () => void}) => {
+const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: AnimatedBarComponentProps ) => {
 
   const { width, height } = Dimensions.get('window')
   const timerAnimation = useRef(new Animated.Value(0)).current;
