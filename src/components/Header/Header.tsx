@@ -2,16 +2,18 @@ import React from 'react';
 import { 
   StyleSheet, 
   Text, 
-  SafeAreaView, 
+  SafeAreaView,
+  View, 
 } from 'react-native';
 import { LogoHeader } from '../../SVGS';
 
 const Header = () => {
 
   return(
-    <SafeAreaView style={styles.container}>
-      <Text style={{fontSize: 36}}>
-        {<LogoHeader />}</Text>
+    <SafeAreaView >
+      <View style={styles.container}>
+      <LogoHeader height={24} />
+      </View>
     </SafeAreaView>
   )
 }
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'AppleSDGothicNeo-Regular'
+    height: 48
   },
 });
 
