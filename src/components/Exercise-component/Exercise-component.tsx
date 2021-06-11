@@ -4,19 +4,8 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { Exercise } from '../../components';
 import { MinutesAndSeconds } from '../Minutes-and-seconds/Minutes-and-seconds';
-
-// A new, empty exercise added when add exercise button is pressed  
-const blankExcercise: Exercise = {
-  title: '',
-  duration: 0,
-  description: ''
-}
-
-interface ExerciseComponentProps extends Exercise {
-  onChange: (key:string, value:string) => void
-}
+import { ExerciseComponentProps } from './Exercise-component.types'
 
 const ExerciseComponent = ({
   title,
@@ -63,5 +52,3 @@ const styles = StyleSheet.create({
 })
 
 export { ExerciseComponent } 
-export { blankExcercise }
-export { ExerciseComponentProps } 

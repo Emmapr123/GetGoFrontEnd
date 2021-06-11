@@ -11,7 +11,7 @@ import { ExerciseHeaderComponentProps } from './Exercise-header-component.types'
 const ExerciseHeaderComponent = ( { addExercise, deleteExercise }: ExerciseHeaderComponentProps ) => {
   return(
     <View style={styles.ExercisesButtonBox}>
-      <Text style={styles.ExercisesTitle} > Exercises</Text>
+      <Text style={styles.ExercisesTitle} >Exercises</Text>
       <View style={styles.ExercisesButtons}>
         <Button style={{marginRight: 15}} text={<BinButton height={20}/>} onPress={deleteExercise} />
         <Button text={<AddButton height={20} width={20}/>} onPress={addExercise}/>

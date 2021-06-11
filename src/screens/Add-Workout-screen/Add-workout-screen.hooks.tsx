@@ -1,6 +1,7 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
 import {useEffect, useState} from 'react';
-import { Exercise, useMyContext, blankExcercise } from '../../components';
+import { Exercise, useMyContext } from '../../components';
+import { blankExcercise } from '../../components/Exercise-component/Exercise-component.types';
 import { AddWorkoutScreenProp } from '../../routes';
 
 const useAddWorkout = () => {

@@ -8,7 +8,8 @@ import {
 import { AnimatedBarComponent } from "../Animated-countdown-bar-component"
 import { Exercise } from '../Context-provider'
 
-const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}:  {onAnimationComplete: () => void, currentIndex: number, index: number, item: Exercise}) => {
+const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}:  
+  {onAnimationComplete: () => void, currentIndex: number, index: number, item: Exercise}) => {
  
   const { width } = Dimensions.get('window')
 
