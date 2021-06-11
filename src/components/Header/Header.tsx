@@ -4,13 +4,14 @@ import {
   Text, 
   SafeAreaView, 
 } from 'react-native';
+import { LogoHeader } from '../../SVGS';
 
 const Header = () => {
 
   return(
     <SafeAreaView style={styles.container}>
       <Text style={{fontSize: 36}}>
-        GetGo</Text>
+        {<LogoHeader />}</Text>
     </SafeAreaView>
   )
 }
