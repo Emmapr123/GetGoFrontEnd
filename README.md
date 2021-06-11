@@ -2,7 +2,7 @@
 
 A personalized fitness app
 
-![preview](./assets/Examples/ScreenShot1.png)![preview](./assets/Examples/ScreenShot2.png)![preview](./assets/Examples/ScreenShot3.png)![preview](./assets/Examples/ScreenShot4.png)
+![preview](./assets/Examples/preview.png)
 
 ## Walkthrough
 
