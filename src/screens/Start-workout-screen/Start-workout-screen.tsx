@@ -7,7 +7,7 @@ import {
   FlatList,
 } from 'react-native';
 import { StartWorkoutComponent } from '../../components';
-import { StartWorkoutScreenProp } from './start-workout-screen.types';
+import { StartWorkoutScreenProp } from '../../routes';
 
 const StartWorkoutScreen = () => {
 
