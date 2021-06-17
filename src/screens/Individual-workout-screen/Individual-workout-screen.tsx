@@ -23,7 +23,7 @@ const IndividualWorkoutScreen = () => {
     <View style={{flex: 1, position: 'relative'}}>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
       <MinutesAndSeconds style={styles.totalDuration} duration={totalDuration(fullWorkout)}/>
-      <Button text={<EditButton height={20}/>} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
+      <Button text={<EditButton height={20} color='#26547c'/>} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
       <ScrollView>
       {exercises.map((exercise: Exercise, index: number) =>  {
           return <ExerciseComponent key={index}
@@ -43,10 +43,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     alignSelf: 'center',
     margin: 18,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   totalDuration:{
     fontSize: 18,
+    color: '#26547c',
     alignSelf: 'center',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
@@ -54,7 +56,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     bottom: 20,
-    fontSize: 36,
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   editButton: {

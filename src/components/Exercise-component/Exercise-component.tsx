@@ -16,15 +16,15 @@ const ExerciseComponent = ({
   <View style={styles.exerciseBox} >
     <View style={styles.titleAndDuration}>
       <Text style={styles.title} >{title}</Text>
-      <MinutesAndSeconds {...{duration}} />
+      <MinutesAndSeconds style={styles.duration} {...{duration}} />
     </View>
-    <Text> {description} </Text>
+    <Text style={styles.description}> {description} </Text>
   </View>)
 }
 
 const styles = StyleSheet.create({
   exerciseBox: {
-    borderColor: 'black',
+    borderColor: '#26547c',
     borderWidth: 0.3,
     borderRadius: 4,
     padding: 10,
@@ -38,14 +38,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 10,
     marginHorizontal: 3,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   duration: {
     fontSize: 14,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   description: {
     fontSize: 14,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Thin'
   }
 })
