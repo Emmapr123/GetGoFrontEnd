@@ -4,6 +4,7 @@ import { TextInput,
   View, 
   StyleSheet,
   Animated } from 'react-native';
+import { Button } from '../Button';
 import { AnimatedBarComponentProps } from './Animated-bar-component.types';
 
 const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: AnimatedBarComponentProps ) => {
@@ -27,8 +28,6 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
       timerAnimation.removeAllListeners();
     }
   })
-
-  console.log(inputRef)
 
   // Now the animation knows where to start and how long it animates for
   const AnimatedExerciseBar = () => {
@@ -57,8 +56,13 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
     }
   }, [active])
 
+  const skip = () => {
+    timerAnimation.stopAnimation()
+  }
+
   return(
     <View style={{flex: 1}}>
+    <Button text={'Skip'} onPress={() => skip()} />
     <Animated.View 
       style={{
         position: 'absolute',

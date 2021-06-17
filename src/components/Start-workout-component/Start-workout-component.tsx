@@ -6,6 +6,7 @@ import {
   Dimensions
  } from "react-native"
 import { AnimatedBarComponent } from "../Animated-countdown-bar-component"
+import { Button } from '../Button'
 import { StartWorkoutComponentProps } from './Start-workout-component.types'
 
 const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}: StartWorkoutComponentProps ) => {
