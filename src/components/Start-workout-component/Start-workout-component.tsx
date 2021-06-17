@@ -26,6 +26,7 @@ const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}
       justifyContent: 'center',
       alignSelf: 'center',
       marginTop: 30,
+      color: '#26547c',
       fontFamily: 'AppleSDGothicNeo-Regular',
     },
     description: {
@@ -33,6 +34,7 @@ const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}
       fontSize: 18,
       justifyContent: 'center',
       alignSelf: 'center',
+      color: '#26547c',
       marginTop: 10,
     }
   })

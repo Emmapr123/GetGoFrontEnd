@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     fontFamily: 'AppleSDGothicNeo-Regular',
     fontSize: 40, 
     width: 70, 
+    color: '#26547c',
   },
   timer: {
     alignItems:'center',
