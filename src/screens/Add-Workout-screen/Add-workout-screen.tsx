@@ -38,7 +38,7 @@ const AddWorkoutScreen = () => {
         } else return null
     })}
     </ScrollView>
-    <Button style={styles.saveButton} text={<SaveButton height={30}/>} onPress={existingWorkout ? saveChanges : addWorkout}/>
+    <Button style={styles.saveButton} text={<SaveButton height={30} color='#26547c'/>} onPress={existingWorkout ? saveChanges : addWorkout}/>
     </View>
   )
 }

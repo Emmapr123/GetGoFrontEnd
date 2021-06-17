@@ -51,14 +51,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     marginBottom: 50,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   description: {
     fontSize: 18,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   line: {
-    borderRightColor: 'black',
+    borderRightColor: '#26547c',
     borderRightWidth: 0.2,
     marginVertical: 5
   }

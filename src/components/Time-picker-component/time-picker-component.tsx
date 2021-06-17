@@ -20,7 +20,7 @@ const TimePickerComPonent = ( {
     <View style={styles.pickerContainer}>
       <Picker
       style={styles.picker}
-      itemStyle={{height: 160}}
+      itemStyle={{height: 160, color: '#26547c'}}
       selectedValue={minutes}
       onValueChange={(itemValue) =>
         setMinutes(itemValue)
@@ -31,7 +31,7 @@ const TimePickerComPonent = ( {
       </Picker>
       <Picker
       style={styles.picker}
-      itemStyle={{height: 160}}
+      itemStyle={{height: 160, color: '#26547c' }}
       selectedValue={seconds}
       onValueChange={(itemValue) => 
         setSeconds(itemValue)
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   },
   picker: {
     flex: 1, 
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   }
 })

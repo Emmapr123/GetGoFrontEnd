@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
   workoutTitle: {
     height: 40,
     fontSize: 18,
-    borderColor: 'black',
+    color: '#26547c',
+    borderColor: '#26547c',
     borderWidth: 0.3,
     margin: 18,
     paddingLeft: 10,
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   },
   line: {
     borderWidth: 0.5,
-    borderColor: 'black',
+    borderColor: '#26547c',
     marginTop: 2,
     margin: 10
   }
