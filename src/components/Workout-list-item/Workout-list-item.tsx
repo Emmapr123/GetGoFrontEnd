@@ -28,7 +28,7 @@ const WorkoutListItem = (workout: Workout) => {
         <Text style={styles.title} >{workout.title}</Text>
         <MinutesAndSeconds style={styles.duration} duration={duration} />
       </TouchableOpacity>
-      <Button text={<BinButton height={20}/>} onPress={() => myContext?.onDeleteWorkout(workout)} style={styles.BinButton} />
+      <Button text={<BinButton height={20} color='#ef476f'/>} onPress={() => myContext?.onDeleteWorkout(workout)} style={styles.BinButton} />
     </View>
   )}
 
@@ -46,17 +46,19 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginTop: 18,
     marginLeft: 18,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   duration: {
     fontSize: 18,
     marginTop: 24,
     marginLeft: 18,
+    color: '#26547c',
     fontFamily: 'AppleSDGothicNeo-Regular'
   },
   BinButton: {
-    marginTop: 22, 
-    marginHorizontal: 15
+    marginTop: 25, 
+    marginHorizontal: 15,
   }
 })
 
