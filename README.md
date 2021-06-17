@@ -49,7 +49,42 @@ When you restart the app you will still have all of your saved workouts.
 Have fun!
 ```
 
-### MPV no. I
+### MVP no. II
+
+deadline - fi. 25/06/21
+
+```
+As a user
+To easily manouver through the app
+I want the buttons to be easy to press
+```
+```
+As a user
+When I want to take a break
+I want to be able to pause my exercise
+```
+```
+As a user
+When I dont want to do a certain exercise
+I want to be able to skip that exercise
+```
+```
+As a user
+To get more joy from using the app
+I want to see more colours on the interface
+```
+```
+As a user
+To prevent confusion
+I want to be notified when my exercise is done
+```
+```
+As a user
+To see how I am doing overall
+I want to be able to see statistics about my workouts
+```
+
+### MVP no. I
 
 Deadline - fri. 11/06/21
 
