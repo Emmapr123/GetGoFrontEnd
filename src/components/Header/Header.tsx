@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
     flexDirection: 'row',
+    color: '#26547c',
     alignItems: 'center',
     justifyContent: 'center',
     height: 48

@@ -48,7 +48,7 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
 
   const opacity = timerAnimation.interpolate({
     inputRange: [0, 0.2, 1],
-    outputRange: [0, 0.5, 1]
+    outputRange: [0.2, 0.5, 1]
   })
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
         width,
         height,
         opacity,
-        backgroundColor: 'lightgreen',
+        backgroundColor: '#06d6a0',
         transform: [
           {
             translateY: moveDown
