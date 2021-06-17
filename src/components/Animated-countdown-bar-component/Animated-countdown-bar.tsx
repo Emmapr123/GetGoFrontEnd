@@ -12,7 +12,7 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
   const { width, height } = Dimensions.get('window')
   const timerAnimation = useRef(new Animated.Value(0)).current;
   const duration = +exercise.duration
-  const newHeight = height - 160
+  const newHeight = height - 120
   const inputRef = useRef<TextInput>(null);
 
   React.useEffect(() => {
@@ -60,8 +60,12 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
     timerAnimation.stopAnimation()
   }
 
+  //Create Pause button to stop exercises halfway through and save the duration
+  // const pause = () => {
+  // }
+
   return(
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, position: 'absolute'}}>
     <Button text={'Skip'} onPress={() => skip()} />
     <Animated.View 
       style={{
