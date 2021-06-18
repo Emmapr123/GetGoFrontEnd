@@ -3,17 +3,24 @@ import Svg, { SvgProps, Path } from "react-native-svg"
 
 function AddButton(props: SvgProps) {
 
-  const { width=40, height=40, color="#1d1d1b" } = props 
+  const { width=40, height=40, color="#000" } = props 
 
   return (
     <Svg
       width={width}
       height={height}
-      viewBox="0 0 113.41 113.41"
+      viewBox="0 0 118.39 118.39"
       {...props}
     >
       <Path
-        d="M.02 56.11l113.38.6M57.01.01l-.6 113.39"
+        fill="none"
+        stroke="none"
+        strokeMiterlimit={10}
+        strokeWidth={5}
+        d="M2.5 2.5h113.39v113.39H2.5z"
+      />
+      <Path
+        d="M.48 57.9l113.39.59M57.47 1.8q-.3 56.7-.59 113.39"
         fill="none"
         stroke={color}
         strokeMiterlimit={10}

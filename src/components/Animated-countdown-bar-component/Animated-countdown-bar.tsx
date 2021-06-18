@@ -64,8 +64,8 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
 
   // Create Pause button to stop exercises halfway through and save the duration
   const pause = () => {
-    timerAnimation.stopAnimation((finalValue) => {
-      console.log('finalValue', finalValue)
+    timerAnimation.stopAnimation((pauseValue) => {
+      console.log('pauseValue', pauseValue)
     })
   }
 

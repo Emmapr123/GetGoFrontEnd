@@ -8,7 +8,7 @@ import { ButtonProps } from './Button.types';
 const Button = ({style, text, onPress}: ButtonProps) => {
 
   return(
-    <TouchableOpacity {...{style, onPress}} hitSlop={{top: 8, left: 8, right: 8, bottom: 8}}>
+    <TouchableOpacity {...{style, onPress}} hitSlop={{top: 24, left: 24, right: 24, bottom: 24}} >
       <Text style={{fontSize: 24}}>{text}</Text>
     </TouchableOpacity>
   )
