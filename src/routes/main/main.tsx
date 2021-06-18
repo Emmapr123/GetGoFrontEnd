@@ -1,16 +1,10 @@
 import React from 'react';
-import { 
-  StyleSheet
-} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { WorkoutListScreen } from '../../screens/Workout-list';
-import { Button, MyContextProvider, useMyContext } from '../../components';
+import { Button, useMyContext } from '../../components';
 import { AddWorkoutScreen, 
   IndividualWorkoutScreen, 
   StartWorkoutScreen } from '../../screens';
-import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
 import { RootStackParamList } from '../../routes';
 
 const Stack = createStackNavigator<RootStackParamList>();
