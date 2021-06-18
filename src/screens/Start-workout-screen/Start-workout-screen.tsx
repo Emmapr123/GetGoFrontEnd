@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Dimensions,
   FlatList,
+  Alert,
 } from 'react-native';
 import { StartWorkoutComponent } from '../../components';
 import { StartWorkoutScreenProp } from '../../routes';
@@ -14,8 +15,10 @@ const StartWorkoutScreen = () => {
   const route = useRoute<StartWorkoutScreenProp>();
   const navigation = useNavigation()
   const exercises = route?.params?.workout.exercises
+  const workoutTitle = route?.params.workout
   const { width, height } = Dimensions.get('window')
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [modal, setModal] = useState(false);
   let flatListRef = useRef<FlatList>(null);
 
   const onAnimationComplete = () => {
@@ -23,6 +26,7 @@ const StartWorkoutScreen = () => {
     if (currentIndex < exercises.length - 1) {
     flatListRef.current?.scrollToIndex({animated: true, index: currentIndex + 1})
     } else {
+      Alert.alert('Well done!', `${workoutTitle.title} completed`)
       navigation.navigate("WorkoutList")
     }
   }

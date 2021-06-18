@@ -4,7 +4,6 @@ import { TextInput,
   View, 
   StyleSheet,
   Animated } from 'react-native';
-import { Value } from 'react-native-reanimated';
 import { Button } from '../Button';
 import { AnimatedBarComponentProps } from './Animated-bar-component.types';
 
