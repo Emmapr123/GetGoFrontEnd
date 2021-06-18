@@ -15,11 +15,11 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
   const duration = +exercise.duration
   const newHeight = height - 120
   const inputRef = useRef<TextInput>(null);
-  const [number, setNumber] = useState('')
+  // const [paused, setPaused] = useState(0)
 
   React.useEffect(() => {
     const listener = timerAnimation.addListener(({value}) => {
-      setNumber((duration + (value * (1 - duration))).toFixed())
+      const number = (duration + (value * (1 - duration))).toFixed()
       inputRef?.current?.setNativeProps({
         text:  +number < 10 ? `0${number}` : `${number}`
       })
@@ -37,8 +37,11 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
       toValue: 1,
       duration: duration * 1000,
       useNativeDriver: true
-    }).start(() => 
-      onAnimationComplete()
+    }).start(() => {
+      // console.log(paused)
+      // if (!paused) {
+        onAnimationComplete()
+      }
     )
   }
 
@@ -63,11 +66,11 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
   }
 
   // Create Pause button to stop exercises halfway through and save the duration
-  const pause = () => {
-    timerAnimation.stopAnimation((pauseValue) => {
-      console.log('pauseValue', pauseValue)
-    })
-  }
+  // const pause = () => {
+  //   timerAnimation.stopAnimation((pauseValue) => {
+  //     console.log('pauseValue', pauseValue)
+  //   })
+  // }
 
   return(
     <View style={{flex: 1, position: 'absolute'}}>

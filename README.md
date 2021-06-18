@@ -58,11 +58,11 @@ As a user
 To easily manouver through the app
 I want the buttons to be easy to press
 ```
-```
+<!-- ```
 As a user
 When I want to take a break
 I want to be able to pause my exercise
-```
+``` -->
 ```
 As a user
 When I dont want to do a certain exercise
