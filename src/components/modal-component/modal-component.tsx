@@ -1,26 +1,19 @@
-import React, { ReactNode } from 'react'
-import { Dimensions, 
-  StyleProp, 
+import React from 'react'
+import { 
   Text,
   Modal,
   TouchableOpacity, 
-  View, 
-  ViewStyle } from "react-native"
+  View } from "react-native"
 import { useMyContext } from '../Context-provider'
-
-interface ModalComponentProps {
-  style?: StyleProp<ViewStyle>;
-  text?: string | ReactNode, 
-}
+import { ModalComponentProps } from './modal-component.types'
 
 const ModalComponent = ({style, text}: ModalComponentProps) => {
-  const myContext = useMyContext()
-  const { height, width } = Dimensions.get('window')
 
+  const myContext = useMyContext()
   const setModal = () => {
     myContext?.onModalChange()
   }
-  
+
   return(
     <Modal visible={myContext?.modalOn} animationType={'fade'} transparent={true}>
       <View style={{flex: 1, backgroundColor: 'none'}}>
