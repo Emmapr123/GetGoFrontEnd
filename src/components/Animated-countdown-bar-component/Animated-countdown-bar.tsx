@@ -75,7 +75,7 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
   return(
     <View style={{flex: 1, position: 'absolute'}}>
     <Button text={'Skip'} onPress={() => skip()} />
-    <Button text={'Pause'} onPress={() => pause()} />
+    {/* <Button text={'Pause'} onPress={() => pause()} /> */}
     <Animated.View 
       style={{
         position: 'absolute',
