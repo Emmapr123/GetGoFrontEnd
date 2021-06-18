@@ -21,10 +21,10 @@ const StartWorkoutScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   let flatListRef = useRef<FlatList>(null);
 
-  const onWorkoutDone = (workoutId: string) => {
+  const onWorkoutDone = (workoutTitle: string) => {
     myContext?.onWorkoutDone({
       date: `${new Date()}`,
-      workoutId: workoutId
+      workoutTitle: workoutTitle
     })
   }
 

@@ -38,7 +38,7 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete, workout }
     }).start(() => {
       // console.log(paused)
       // if (!paused) {
-        onAnimationComplete(workout.id)
+        onAnimationComplete(workout.title)
       }
     )
   }
