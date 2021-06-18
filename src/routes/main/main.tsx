@@ -13,7 +13,6 @@ const Main = () => {
   const myContext = useMyContext();
   const myModal = () => {
     myContext?.onModalChange()
-    console.log(myContext?.modalOn)
   }
 
 return (
@@ -29,7 +28,7 @@ return (
     <Stack.Screen 
       name="IndividualWorkoutScreen" 
       component={IndividualWorkoutScreen} 
-      options={{headerTitle: () => <Button text={'GetGo'} onPress={() => console.log('modal on')}/>}}/>
+      options={{headerTitle: () => <Button text={'GetGo'} onPress={() => myModal() }/>}}/>
     <Stack.Screen 
       name="StartWorkoutScreen" 
       component={StartWorkoutScreen} 

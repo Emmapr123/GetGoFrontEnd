@@ -73,7 +73,6 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
 
   const onModalChange = () => {
     setModalOn(prev => {
-      console.log('prev', prev)
       return !prev})
   }
 
