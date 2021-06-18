@@ -13,6 +13,13 @@ function BinButton(props: SvgProps) {
     >
       <Path
         fill="none"
+        stroke="none"
+        strokeMiterlimit={10}
+        strokeWidth={5}
+        d="M2.5 2.5h113.39v113.39H2.5z"
+      />
+      <Path
+        fill="none"
         stroke={color}
         strokeMiterlimit={10}
         strokeWidth={5}
