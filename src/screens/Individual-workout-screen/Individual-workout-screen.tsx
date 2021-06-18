@@ -1,12 +1,14 @@
 import { useNavigation, useRoute } from '@react-navigation/core';
 import React from 'react';
 import { 
+  Dimensions,
   View,
   Text,
   ScrollView,
   StyleSheet,
+  Modal,
 } from 'react-native';
-import { ExerciseComponent, Button, MinutesAndSeconds, Exercise } from '../../components';
+import { ExerciseComponent, Button, MinutesAndSeconds, Exercise, useMyContext, ModalComponent, IndividualWorkoutStats } from '../../components';
 import { totalDuration } from '../../Helper-functions';
 import { IndividualWorkoutScreenProp } from '../../routes';
 import { EditButton } from '../../SVGS';
@@ -14,13 +16,18 @@ import { EditButton } from '../../SVGS';
 const IndividualWorkoutScreen = () => {
   
   const route = useRoute<IndividualWorkoutScreenProp>();
+  const { height, width } = Dimensions.get('window')
   const fullWorkout = route?.params?.workout
   const workoutTitle = fullWorkout?.title
   const exercises = fullWorkout?.exercises
   const navigation = useNavigation()
+  const myContext = useMyContext();
 
   return(
     <View style={{flex: 1, position: 'relative'}}>
+      <ModalComponent 
+        style={{flex: 1, position: 'absolute', justifyContent: 'flex-end', height: height * 0.2, width, backgroundColor: 'white', borderTopLeftRadius: 18, borderTopRightRadius: 18, bottom: 0}} 
+        text={<IndividualWorkoutStats />}/>
       <Text style={styles.workoutTitle} >{workoutTitle}</Text>
       <MinutesAndSeconds style={styles.totalDuration} duration={totalDuration(fullWorkout)}/>
       <Button text={<EditButton height={20} color='#26547c'/>} style={styles.editButton} onPress={() => navigation.navigate("AddWorkoutScreen", { workout: fullWorkout})}/>
