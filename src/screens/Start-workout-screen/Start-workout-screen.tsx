@@ -18,7 +18,6 @@ const StartWorkoutScreen = () => {
   const workoutTitle = route?.params.workout
   const { width, height } = Dimensions.get('window')
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [modal, setModal] = useState(false);
   let flatListRef = useRef<FlatList>(null);
 
   const onAnimationComplete = () => {

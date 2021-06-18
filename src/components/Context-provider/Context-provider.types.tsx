@@ -19,5 +19,6 @@ export interface Exercise {
 }
 
 export interface DoneWorkout {
-  date: string
+  date: string;
+  workoutId: string
 }
