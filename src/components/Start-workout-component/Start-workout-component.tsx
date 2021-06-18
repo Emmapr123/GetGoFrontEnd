@@ -9,7 +9,7 @@ import { AnimatedBarComponent } from "../Animated-countdown-bar-component"
 import { Button } from '../Button'
 import { StartWorkoutComponentProps } from './Start-workout-component.types'
 
-const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}: StartWorkoutComponentProps ) => {
+const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item, workout}: StartWorkoutComponentProps ) => {
  
   const { width } = Dimensions.get('window')
 
@@ -17,7 +17,7 @@ const StartWorkoutComponent = ( {onAnimationComplete, currentIndex, index, item}
     <View key={index} style={{width}}>
       <Text style={styles.title} >{item.title}</Text>
       <Text style={styles.description} > {item.description} </Text>
-      <AnimatedBarComponent exercise={item} active={index === currentIndex} {...{onAnimationComplete}}/>
+      <AnimatedBarComponent exercise={item} active={index === currentIndex} {...{onAnimationComplete, workout}}/>
     </View>
   )}
 

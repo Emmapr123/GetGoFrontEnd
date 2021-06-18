@@ -21,6 +21,13 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
     await AsyncStorage.setItem('doneWorkouts', JSON.stringify(doneWorkouts))
   }
 
+  const onWorkoutDone = (doneWorkout: DoneWorkout) => {setMyDoneWorkouts((prev) => {
+      const update = [...prev, doneWorkout]
+      SaveDoneWorkouts(update)
+      return update
+    })
+  }
+
   const addWorkout = (workout:Workout) => setMyWorkouts((prev) => {
     const update = [...prev,workout]
     SaveWorkouts(update)
@@ -44,14 +51,6 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
     return update
   })
 
-  const onWorkoutDone = (doneWorkout: DoneWorkout) => {
-    setMyDoneWorkouts((prev) => {
-      const update = [...prev, doneWorkout]
-      SaveDoneWorkouts(update)
-      return update
-    })
-  }
-
   const loadWorkouts = async() => {
     const workouts = await AsyncStorage.getItem('workouts')
     if (workouts) {
@@ -69,7 +68,7 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
   useEffect(() => {
     loadWorkouts()
     loadDoneData()
-  })
+  }, [])
 
   const value = {
     myWorkouts,

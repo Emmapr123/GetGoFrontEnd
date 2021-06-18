@@ -1,8 +1,9 @@
-import { Exercise } from "../Context-provider";
+import { Exercise, Workout } from "../Context-provider";
 
 export interface StartWorkoutComponentProps {
-  onAnimationComplete: () => void, 
+  onAnimationComplete: (workoutId: string) => void, 
   currentIndex: number, 
   index: number, 
-  item: Exercise
+  item: Exercise,
+  workout: Workout
 }

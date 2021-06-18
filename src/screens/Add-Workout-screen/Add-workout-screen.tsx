@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Button, ExerciseComponent, EditExerciseComponent, WorkoutTitleComponent, ExerciseHeaderComponent } from '../../components';
-import {  SaveButton } from '../../SVGS';
+import { SaveButton } from '../../SVGS';
 import { useAddWorkout } from './Add-workout-screen.hooks';
 
 const AddWorkoutScreen = () => {

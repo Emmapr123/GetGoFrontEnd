@@ -7,14 +7,13 @@ import { TextInput,
 import { Button } from '../Button';
 import { AnimatedBarComponentProps } from './Animated-bar-component.types';
 
-const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: AnimatedBarComponentProps ) => {
+const AnimatedBarComponent = ( {exercise, active, onAnimationComplete, workout }: AnimatedBarComponentProps ) => {
 
   const { width, height } = Dimensions.get('window')
   const timerAnimation = useRef(new Animated.Value(0)).current;
   const duration = +exercise.duration
   const newHeight = height - 120
   const inputRef = useRef<TextInput>(null);
-  // const [paused, setPaused] = useState(0)
 
   React.useEffect(() => {
     const listener = timerAnimation.addListener(({value}) => {
@@ -39,7 +38,7 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
     }).start(() => {
       // console.log(paused)
       // if (!paused) {
-        onAnimationComplete()
+        onAnimationComplete(workout.id)
       }
     )
   }

@@ -3,7 +3,8 @@ export interface MyContextValue {
   onDeleteWorkout: (workout: Workout) => void;
   onEditWorkout: ( workout: Workout ) => void;
   myWorkouts: Workout[];
-  myDoneWorkouts: DoneWorkout[]
+  myDoneWorkouts: DoneWorkout[];
+  onWorkoutDone: (doneWorkout: DoneWorkout) => void;
 }
 
 export interface Workout {

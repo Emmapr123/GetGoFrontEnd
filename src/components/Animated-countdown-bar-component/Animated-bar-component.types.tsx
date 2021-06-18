@@ -1,7 +1,8 @@
-import { Exercise } from "../Context-provider";
+import { Exercise, Workout } from "../Context-provider";
 
 export interface AnimatedBarComponentProps {
+  workout: Workout,
   exercise: Exercise, 
   active: boolean, 
-  onAnimationComplete: () => void
+  onAnimationComplete: (workoutId: string) => void,
 }
