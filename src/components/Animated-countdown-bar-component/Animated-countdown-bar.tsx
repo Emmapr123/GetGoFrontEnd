@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { TextInput, 
   Dimensions, 
   View, 
   StyleSheet,
   Animated } from 'react-native';
+import { Value } from 'react-native-reanimated';
 import { Button } from '../Button';
 import { AnimatedBarComponentProps } from './Animated-bar-component.types';
 
@@ -14,10 +15,11 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
   const duration = +exercise.duration
   const newHeight = height - 120
   const inputRef = useRef<TextInput>(null);
+  const [number, setNumber] = useState('')
 
   React.useEffect(() => {
     const listener = timerAnimation.addListener(({value}) => {
-      const number = (duration + (value * (1 - duration))).toFixed()
+      setNumber((duration + (value * (1 - duration))).toFixed())
       inputRef?.current?.setNativeProps({
         text:  +number < 10 ? `0${number}` : `${number}`
       })
@@ -60,13 +62,17 @@ const AnimatedBarComponent = ( {exercise, active, onAnimationComplete }: Animate
     timerAnimation.stopAnimation()
   }
 
-  //Create Pause button to stop exercises halfway through and save the duration
-  // const pause = () => {
-  // }
+  // Create Pause button to stop exercises halfway through and save the duration
+  const pause = () => {
+    timerAnimation.stopAnimation((finalValue) => {
+      console.log('finalValue', finalValue)
+    })
+  }
 
   return(
     <View style={{flex: 1, position: 'absolute'}}>
     <Button text={'Skip'} onPress={() => skip()} />
+    <Button text={'Pause'} onPress={() => pause()} />
     <Animated.View 
       style={{
         position: 'absolute',

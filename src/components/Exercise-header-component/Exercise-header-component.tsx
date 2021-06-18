@@ -13,8 +13,8 @@ const ExerciseHeaderComponent = ( { addExercise, deleteExercise }: ExerciseHeade
     <View style={styles.ExercisesButtonBox}>
       <Text style={styles.ExercisesTitle} >Exercises</Text>
       <View style={styles.ExercisesButtons}>
-        <Button style={{marginRight: 15}} text={<BinButton height={20} color='#ef476f'/>} onPress={deleteExercise} />
-        <Button text={<AddButton height={20} width={20} color='#26547c'/>} onPress={addExercise}/>
+        <Button style={{marginRight: 15, padding: 16}} text={<BinButton height={25} color='#ef476f'/>} onPress={deleteExercise} />
+        <Button style={{ padding: 16}}text={<AddButton height={25} width={25} color='#26547c'/>} onPress={addExercise}/>
       </View>
     </View>
   )
