@@ -12,6 +12,7 @@ export const useMyContext = () => {
 export const MyContextProvider: FunctionComponent = ({children}) => {
   const [myWorkouts, setMyWorkouts] = useState<Workout[]>([]);
   const [myDoneWorkouts, setMyDoneWorkouts] = useState<DoneWorkout[]>([]);
+  const [modalOn, setModalOn] = useState(false)
 
   const SaveWorkouts = async(workouts?: Workout[]) => {
     await AsyncStorage.setItem('workouts', JSON.stringify(workouts))
@@ -70,13 +71,19 @@ export const MyContextProvider: FunctionComponent = ({children}) => {
     loadDoneData()
   }, [])
 
+  const onModalChange = () => {
+    setModalOn(!modalOn)
+  }
+
   const value = {
     myWorkouts,
     addWorkout,
     onDeleteWorkout,
     onEditWorkout,
     myDoneWorkouts,
-    onWorkoutDone
+    onWorkoutDone,
+    modalOn,
+    onModalChange
   };
 
   return <MyContext.Provider value={value}>{children}</MyContext.Provider>;

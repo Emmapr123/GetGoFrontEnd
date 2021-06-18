@@ -5,6 +5,8 @@ export interface MyContextValue {
   myWorkouts: Workout[];
   myDoneWorkouts: DoneWorkout[];
   onWorkoutDone: (doneWorkout: DoneWorkout) => void;
+  modalOn: boolean;
+  onModalChange: () => void;
 }
 
 export interface Workout {
@@ -22,4 +24,8 @@ export interface Exercise {
 export interface DoneWorkout {
   date: string;
   workoutTitle: string
+}
+
+export interface modalOn {
+  modalOn: boolean
 }
