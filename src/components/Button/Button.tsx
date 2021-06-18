@@ -9,7 +9,7 @@ const Button = ({style, text, onPress}: ButtonProps) => {
 
   return(
     <TouchableOpacity {...{style, onPress}} hitSlop={{top: 24, left: 24, right: 24, bottom: 24}} >
-      <Text style={{fontSize: 24}}>{text}</Text>
+      <Text style={{fontSize: 24, color: '#FFD166'}}>{text}</Text>
     </TouchableOpacity>
   )
 }
